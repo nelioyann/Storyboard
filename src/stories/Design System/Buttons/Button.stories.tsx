@@ -8,7 +8,7 @@ export default {
     component: Button,
     args: {
         //👇 Now all Button stories will have this label.
-        label: "Default label"
+        children: "Default label"
     }
 } as ComponentMeta<typeof Button>;
 
@@ -17,19 +17,20 @@ const ButtonTemplate: ComponentStory<typeof Button> = (args) => <Button {...args
 
 //👇 We base new button instances on our “template” 
 export const Primary = ButtonTemplate.bind({})
-export const Secondary= ButtonTemplate.bind({})
-export const Tertiary = ButtonTemplate.bind({})
+export const ANDROID= ButtonTemplate.bind({})
+export const IOS = ButtonTemplate.bind({})
 
 //👇 We adapt each instances by providing new attributes 
 Primary.args = {
     fill: 'solid',
-    color: "primary"
+    color: "primary",
+    children: "Primary button"
 }
-Secondary.args = {
+ANDROID.args = {
     fill: 'solid',
-    color: "secondary"
+    mode: "md"
 }
-Tertiary.args = {
+IOS.args = {
     fill: 'solid',
-    color: "tertiary"
+    mode: "ios"
 }
