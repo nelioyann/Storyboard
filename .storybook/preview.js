@@ -19,7 +19,6 @@ import '../src/theme/variables.css';
 import '../src/theme/fonts.css';
 
 import React from 'react';
-// import {addDecorator} from '@storybook/react';
 import {IonApp, IonContent, IonPage, setupIonicReact} from "@ionic/react"
 setupIonicReact({
   // mode: 'ios',
@@ -28,7 +27,7 @@ setupIonicReact({
 const IonWrapper = ({children}) => {
   return (
     <IonApp>
-      <IonPage>
+      <IonPage className="ion-margin">
         <IonContent className="ion-margin">
           {children}
         </IonContent>
@@ -44,4 +43,3 @@ export const decorators = [
     </IonWrapper>
   )
 ]
-// addDecorator((storyFn) => <IonWrapper>{storyFn()}</IonWrapper>)

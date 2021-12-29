@@ -8,13 +8,15 @@ interface HeaderProps {
     icon?: string;
     collapsible?: boolean;
     iconTarget?: string;
+    mode: "ios"  | "md";
+
 
 
 }
 // style={{backgroundColor: "var(--ion-color-light)"}}
-const Header: React.FC<HeaderProps> = ({ name, icon, collapsible, iconTarget }) => {
+const Header: React.FC<HeaderProps> = ({ name, icon, collapsible, iconTarget, mode }) => {
     return (
-        <IonHeader   collapse={collapsible ? "condense" : undefined} className="ion-padding-horizontal ion-no-border">
+        <IonHeader mode={mode} collapse={collapsible ? "condense" : undefined} className="ion-padding-horizontal ion-no-border">
             <IonToolbar   >
                 {icon && <IonButtons slot="primary" collapse={true}>
                     <IonButton fill="clear" color="dark" routerLink={iconTarget}>
