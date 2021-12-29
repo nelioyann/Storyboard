@@ -3,16 +3,20 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 
 export default {
-    title: "Buttons",
+    title: "Components/Button",
     component: Button,
     argTypes: {
+        onClick: {action: 'clicked'},
         mode: {
             control: false
         }
     },
     args: {
         //👇 Now all Button stories will have this label.
-        children: "Default label"
+        children: "Click me ",
+        fill: "solid",
+        isLoading: false,
+        expand: "block"
     }
 } as ComponentMeta<typeof Button>;
 
@@ -21,16 +25,13 @@ const ButtonTemplate: ComponentStory<typeof Button> = (args) => <Button {...args
 
 //👇 We base new button instances on our “template” 
 // export const Primary = ButtonTemplate.bind({})
-export const ANDROID= ButtonTemplate.bind({})
-export const IOS = ButtonTemplate.bind({})
+export const Default= ButtonTemplate.bind({})
+export const Secondary = ButtonTemplate.bind({})
 
 //👇 We adapt each instances by providing new attributes 
 
-ANDROID.args = {
-    fill: 'solid',
-    mode: "md"
+Default.args = {
 }
-IOS.args = {
-    fill: 'solid',
-    mode: "ios"
+Secondary.args = {
+    color: "secondary"
 }
