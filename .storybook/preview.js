@@ -26,12 +26,12 @@ setupIonicReact({
 
 const IonWrapper = ({children}) => {
   return (
-    <IonApp className="ion-margin">
-      <IonPage >
-        {/* <IonContent className="ion-margin"> */}
+    <IonApp>
+      {/* <IonPage > */}
+        {/* <IonContent > */}
           {children}
         {/* </IonContent> */}
-      </IonPage>
+      {/* </IonPage> */}
     </IonApp>
   )
 }

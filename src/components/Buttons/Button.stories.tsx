@@ -1,9 +1,10 @@
 import Button from './Button';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { arrowForward } from 'ionicons/icons';
 
 
 export default {
-    title: "Components/Button",
+    title: "Atoms/Button",
     component: Button,
     argTypes: {
         onClick: {action: 'clicked'},
@@ -16,7 +17,7 @@ export default {
         children: "Click me ",
         fill: "solid",
         isLoading: false,
-        expand: "block"
+        mode: "ios"
     }
 } as ComponentMeta<typeof Button>;
 
@@ -27,6 +28,7 @@ const ButtonTemplate: ComponentStory<typeof Button> = (args) => <Button {...args
 // export const Primary = ButtonTemplate.bind({})
 export const Default= ButtonTemplate.bind({})
 export const Secondary = ButtonTemplate.bind({})
+export const ButtonWithIconOnly = ButtonTemplate.bind({})
 
 //👇 We adapt each instances by providing new attributes 
 
@@ -34,4 +36,9 @@ Default.args = {
 }
 Secondary.args = {
     color: "secondary"
+}
+
+ButtonWithIconOnly.args = {
+    icon: arrowForward,
+    children: ""
 }

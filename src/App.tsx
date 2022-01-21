@@ -22,20 +22,54 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import './theme/fonts.css';
+import Tabs, { ITab } from './ui/Content/Tabs/Tabs';
+import { homeOutline, informationOutline } from 'ionicons/icons';
+import SplitPane, { BreakpointsEnum } from './ui/SplitPane/SplitPane';
+import About from './pages/About';
+import Attributions from './pages/Attributions';
 
 setupIonicReact();
 
+const tabs: ITab[] = [
+  {
+      id: 'home',
+      path: '/tabs/home',
+      label: 'Home',
+      icon: homeOutline,
+      component: Home,
+      isTab: true,
+  },
+  {
+      id: 'about',
+      path: '/tabs/about',
+      label: 'About',
+      icon: informationOutline,
+      component: About,
+      isTab: true,
+
+  },
+  {
+      id: 'attributions',
+      path: '/attributions',
+      label: 'Attributions',
+      icon: informationOutline,
+      component: Attributions,
+      isTab: false
+  },
+]
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
+      <SplitPane contentId="side" when={BreakpointsEnum.md} tabs={tabs}/>
+      <Tabs tabs={tabs} contentId="tabs" when={BreakpointsEnum.md}/>
+      {/* <IonRouterOutlet>
+        <Route exact path="/tabs/home">
           <Home />
         </Route>
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/tabs/home" />
         </Route>
-      </IonRouterOutlet>
+      </IonRouterOutlet> */}
     </IonReactRouter>
   </IonApp>
 );
