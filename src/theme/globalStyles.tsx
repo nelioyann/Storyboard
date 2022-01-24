@@ -36,7 +36,7 @@ export const LargeParagraph = styled(MediumParagraph)`
 
 interface ParagraphProps extends ColoredProps{
     size: "small" | "default" | "large";
-    visibility?: boolean;
+    isVisible?: boolean;
 }
 
 interface HeadingsProps extends HTMLAttributes<HTMLHeadingElement>{
@@ -64,8 +64,8 @@ export const Label = styled.p<ParagraphProps>`
     }
 `
 export const ButtonText = styled(Label)`
-${({ visibility }) =>
-        visibility &&
+${({ isVisible }) =>
+        Boolean(isVisible) === false &&
         css`
             visibility: hidden;
         `
@@ -83,57 +83,6 @@ export const LargeButton = styled(MediumButton)`
   font-weight: var(--font-bold);
   line-height: 122%;
 `;
-
-export const Heading1 = styled.h1<ColoredProps>`
-    font-weight: var(--font-bold);
-    color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
-    font-size: 3.5rem;
-    line-height: 105%;
-    letter-spacing: -1px;
-    white-space: normal;
-`
-export const Heading2 = styled.h2<ColoredProps>`
-    font-weight: var(--font-bold);
-    color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
-    font-size: 2.5rem;
-    line-height: 115%;
-    letter-spacing: -1px;
-    white-space: normal;
-`
-export const Heading3 = styled.h3<ColoredProps>`
-    font-weight: var(--font-bold);
-    color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
-    font-size: 2rem;
-    line-height: 130%;
-    letter-spacing: -1px;
-    white-space: normal;
-`
-
-export const Heading4 = styled.h4<ColoredProps>`
-    font-weight: var(--font-bold);
-    color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
-    padding: 0;
-    margin: 0;
-    /* margin: 2rem 0 1rem; */
-    max-width: 40ch;
-    white-space: normal;
-    font-size: 1.5rem;
-    line-height: 133%;
-`
-export const Heading5 = styled.h5<ColoredProps>`
-    font-weight: var(--font-regular);
-    color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
-    font-size: 1.25rem;
-    line-height: 130%;
-    white-space: normal;
-`
-export const Heading6 = styled.h6<ColoredProps>`
-    font-weight: var(--font-regular);
-    color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
-    font-size: 1rem;
-    line-height: 130%;
-    white-space: normal;
-`
 
 
 

@@ -39,9 +39,9 @@ const Button: React.FC<IButton> = ({
       }
       <>
         {icon && <IonIcon style={{ visibility: isLoading ? "hidden" : "visible", marginRight: "0.5em"}} icon={icon} slot={iconSlot}/>}
-        <ButtonText size={props.size ? props.size : "default"} visibility={isLoading ? true : false}>
+        {children && <ButtonText size={props.size ? props.size : "default"} isVisible={!isLoading}>
           {children}
-        </ButtonText>
+        </ButtonText>}
       </>
     </IonButton>
   );
