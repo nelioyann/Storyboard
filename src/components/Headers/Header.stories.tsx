@@ -1,34 +1,34 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import {  homeOutline } from 'ionicons/icons';
+import { search } from 'ionicons/icons';
 import  Header  from './Header';
 
 
 export default {
-  title: "Headers",
+  title: "Molecules/Headers",
   component: Header,
   // Prevent edition of icon as it is a svg
   argTypes: {
     icon: {
         control: false
     },
-    iconTarget: {
-        control: false
-    },
-    mode: {
+    iconTargetLink: {
         control: false
     }
+
 },
 } as ComponentMeta<typeof Header>;
 
 const HeaderTemplate : ComponentStory<typeof Header> = (args) => <Header {...args}/>
 
-export const Home = HeaderTemplate.bind({})
+export const Default = HeaderTemplate.bind({})
+export const HeaderWithIcon = HeaderTemplate.bind({})
 
-Home.args = {
-  icon: homeOutline,
-  name: "Home",
-  collapsible: true,
-  mode: "ios"
+Default.args = {
+  label: "Header"
+}
+HeaderWithIcon.args = {
+  label: "Search",
+  icon: search
 }
 
 

@@ -1,34 +1,43 @@
 import React from "react";
-import { IonButton, IonButtons, IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButton, IonButtons, IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/react';
 // import { home } from "ionicons/icons";
-import { personCircle, search, ellipsisHorizontal, ellipsisVertical } from "ionicons/icons";
+import Heading from "../Buttons/Headings/Heading";
 
 interface HeaderProps {
-    name: string;
+    label?: string;
     icon?: string;
-    collapsible?: boolean;
-    iconTarget?: string;
-    mode: "ios"  | "md";
-
-
-
+    color?: string;
+    noBorder?: boolean;
+    iconSlot?: "start" | "end" | "";
+    withBackButton?: boolean;
+    backButtonLink?: string
+    iconTargetLink?: string;
 }
-// style={{backgroundColor: "var(--ion-color-light)"}}
-const Header: React.FC<HeaderProps> = ({ name, icon, collapsible, iconTarget, mode }) => {
+const Header: React.FC<HeaderProps> = ({ color = "light" , noBorder = false, label, icon, iconSlot = "end", iconTargetLink, withBackButton = false, backButtonLink = undefined }) => {
     return (
-        <IonHeader mode={mode} collapse={collapsible ? "condense" : undefined} className="ion-padding-horizontal ion-no-border">
-            <IonToolbar   >
-                {icon && <IonButtons slot="primary" collapse={true}>
-                    <IonButton fill="clear" color="dark" routerLink={iconTarget}>
-                        <IonIcon icon={icon} style={{fontSize: '30px',borderRadius: '50%',borderWidth: '8px',borderColor: '#f3f3f3',paddingStart: '15px',paddingEnd: '15px',marginRight: '-10px', marginLeft: '-10px',backgroundActivated: '#f3f3f3'
-                        }}/>
-                    </IonButton>
+        <IonHeader mode="md" className={noBorder ? "ion-no-border" : ""}>
+            <IonToolbar color={color}>
+                {/* Left side */}
+                {withBackButton && <IonButtons slot="start">
+                    <IonBackButton color="dark" text="" defaultHref={backButtonLink} />
                 </IonButtons>}
-                <IonTitle  size={collapsible ? "large" : undefined}>
-                    {collapsible ? <h3 style={{ color: "var(--ion-color-primary)" }} >{name}</h3> : <h4 style={{ color: "var(--ion-color-primary)" }}>{name}</h4>}
-                </IonTitle>
-            </IonToolbar>
 
+                {/* Center side */}
+                {label && <IonTitle slot="">
+                    <Heading level="4" color="primary"
+                        style={{ margin: "auto", textAlign: "center" }}
+                    >{label}</Heading>
+                </IonTitle>}
+
+                {/* Right side */}
+
+                {icon &&
+                    <IonButtons slot={iconSlot}>
+                        <IonButton fill="clear" color="dark" routerLink={iconTargetLink}>
+                            <IonIcon icon={icon}  />
+                        </IonButton>
+                    </IonButtons>}
+            </IonToolbar>
         </IonHeader>
     );
 };
