@@ -16,7 +16,8 @@ export default {
         //👇 Now all Input stories will have this label.
         // children: "Click me ",
         name: "inputName",
-        label: "Label"
+        label: "Label",
+        placeholder: "Enter something here..."
         // isLoading: false,
         // mode: "ios"
     }

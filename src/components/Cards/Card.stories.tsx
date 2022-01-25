@@ -4,7 +4,7 @@ import { arrowForward } from 'ionicons/icons';
 
 
 export default {
-    title: "Atoms/Card",
+    title: "Molecules/Card",
     component: Card,
     argTypes: {
         onClick: {action: 'clicked'},

@@ -2,6 +2,34 @@ import { HTMLAttributes } from "react";
 import styled, { createGlobalStyle, css } from "styled-components";
 // import { ButtonProps } from "../components/Buttons/Button";
 
+export enum SpacingEnum {
+    "s-5"= "var(--s-5)",
+    "s-4"= "var(--s-4)",
+    "s-3"= "var(--s-3)",
+    "s-2"= "var(--s-2)",
+    "s-1"= "var(--s-1)",
+    "s0"= "var(--s0)",
+    "s1"= "var(--s1)",
+    "s2"= "var(--s2)",
+    "s3"= "var(--s3)",
+    "s4"= "var(--s4)",
+    "s5"= "var(--s5)",
+}
+
+export enum FontWeightEnum {
+    "BOLD" = "var(--font-bold)",
+    "REGULAR" = "var(--font-regular)",
+    "LIGHT" = "var(--font-light)",
+}
+
+export enum ColorEnum {
+    "PRIMARY" = "var(--ion-color-primary)",
+    "SECONDARY" = "var(--ion-color-secondary)",
+    "TERTIARY" = "var(--ion-color-tertiary)",
+    "LIGHT" = "var(--ion-color-light)",
+    "DARK" = "var(--ion-color-dark)",
+    "MEDIUM" = "var(--ion-color-medium)",
+}
 
 const GlobalStyle = createGlobalStyle`
 *{
@@ -22,7 +50,7 @@ export const SmallParagraph = styled.p<ColoredProps>`
   color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark-shade)`};
   /* --ionicon-stroke-width: 64px; */
   white-space: normal;
-  font-weight: var(--font-bold);
+  font-weight: ${FontWeightEnum.BOLD};
 `;
 export const MediumParagraph = styled(SmallParagraph)`
   font-size: 0.875rem;
@@ -35,7 +63,7 @@ export const LargeParagraph = styled(MediumParagraph)`
 `;
 
 interface ParagraphProps extends ColoredProps{
-    size: "small" | "default" | "large";
+    size?: "small" | "default" | "large";
     isVisible?: boolean;
 }
 
@@ -44,22 +72,27 @@ interface HeadingsProps extends HTMLAttributes<HTMLHeadingElement>{
 }
 
 export const Label = styled.p<ParagraphProps>`
+    font-size: 1rem !important;
     ${({ size }) =>
         size === "small" &&
         css`
-            font-size: 0.875rem;
-        `
+            font-size: 0.875rem !important;
+            font-weight: ${FontWeightEnum.LIGHT};
+            `
     }
-    ${({ size }) =>
+    ${({ size }) =>//useless FIXME:
         size === "default" &&
         css`
-            font-size: 1rem;
+            font-size: 1rem !important;
+            font-weight: ${FontWeightEnum.REGULAR};
         `
     }
     ${({ size }) =>
         size === "large" &&
         css`
-            font-size: 1.125rem;
+            font-size: 1.125rem !important;
+            font-weight: ${FontWeightEnum.BOLD};
+
         `
     }
 `
@@ -70,17 +103,17 @@ ${({ isVisible }) =>
             visibility: hidden;
         `
     }
-    font-weight: var(--font-bold);
+    font-weight: ${FontWeightEnum.BOLD};
 `
 export const MediumButton = styled(MediumParagraph)`
   font-size: 1rem;
-  font-weight: var(--font-bold);
+  font-weight: ${FontWeightEnum.BOLD};
   line-height: 18px;
   `;
 export const LargeButton = styled(MediumButton)`
   font-size: 1.125rem;
   min-width: 150px;
-  font-weight: var(--font-bold);
+  font-weight: ${FontWeightEnum.BOLD};
   line-height: 122%;
 `;
 
@@ -115,4 +148,3 @@ export const ModuleWrapper = styled.div<ModuleProps>`
     display: inline-block;
     cursor: pointer;
 `
-

@@ -18,6 +18,8 @@ import '@ionic/react/css/display.css';
 import '../src/theme/variables.css';
 import '../src/theme/fonts.css';
 
+import {ColorEnum} from '../src/theme/globalStyles';
+
 import React from 'react';
 import {IonApp, IonContent, IonPage, setupIonicReact} from "@ionic/react"
 setupIonicReact({
@@ -27,11 +29,11 @@ setupIonicReact({
 const IonWrapper = ({children}) => {
   return (
     <IonApp>
-      {/* <IonPage > */}
-        {/* <IonContent > */}
+      <IonPage >
+        <IonContent style={{"--background": ColorEnum.LIGHT}}>
           {children}
-        {/* </IonContent> */}
-      {/* </IonPage> */}
+        </IonContent>
+      </IonPage>
     </IonApp>
   )
 }

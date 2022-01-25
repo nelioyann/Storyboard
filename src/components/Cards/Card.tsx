@@ -10,7 +10,7 @@ interface ICard {
     size?: "small" | "full";
 }
 
-interface IStyledCard {
+interface CardProps {
     $imageUrl?: string;
     $size?: "small" | "full";
 }
@@ -19,7 +19,7 @@ enum CardSizesEnum  {
     "small" = "20em",
     "full" = "100%"
 }
-const StyledCard = styled(IonCard) <IStyledCard>`
+const StyledCard = styled(IonCard) <CardProps>`
     ${({ $imageUrl }) =>
         $imageUrl !== "" &&
         css`
