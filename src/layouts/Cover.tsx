@@ -8,6 +8,10 @@ import { SpacingEnum } from "../theme/globalStyles";
  */
 
 interface CoverProps{
+  /**
+   *  Set a selector to the centered element, default=[data-centered]
+   * 
+   */
     centered?: string; // could be a attribute data-centered on a child
     minHeight?: string;
     noPad?: boolean;

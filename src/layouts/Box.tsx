@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { SpacingEnum } from "../theme/globalStyles";
+import { ColorEnum, SpacingEnum } from "../theme/globalStyles";
 
 interface BoxProps{
     borderWidth?: string;
     padding?: string;
+    invert?: boolean;
 }
 
 const Box = styled.div<BoxProps>`
@@ -14,6 +15,9 @@ const Box = styled.div<BoxProps>`
     display: block;
     padding: ${props => props.padding || SpacingEnum.s1};
 
+    ${props => props.invert ? `
+    background-color: ${ColorEnum.LIGHT};
+    filter: invert(100%);` : ''}
 
     /* ↓ For high contrast mode */
     outline: var(--border-thin) solid transparent;

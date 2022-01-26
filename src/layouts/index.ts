@@ -1,4 +1,5 @@
 export {default as Box} from "./Box";
+export {default as Center} from "./Center";
 export {default as Cluster} from "./Cluster";
 export {default as Cover} from "./Cover";
 export {default as Grid} from "./Grid";
