@@ -33,7 +33,6 @@ const Slides: React.FC<ISlides> = ({onSlideChange}) => {
                 onSlideChange={onSlideChange}
                 >
                 <SwiperSlide>
-
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum rerum iste nostrum temporibus quam sequi quasi, tempore accusamus. Dolor at ad vero nihil est quibusdam blanditiis provident delectus numquam iure.
                 </SwiperSlide>
                 <SwiperSlide>

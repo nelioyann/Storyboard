@@ -1,18 +1,21 @@
 import React, { HTMLAttributes } from 'react';
-import { IonInput, IonItem, IonLabel } from '@ionic/react';
+import { IonTextarea, IonItem, IonLabel } from '@ionic/react';
 import styled from 'styled-components';
 import { Label, SpacingEnum } from '../../../theme/globalStyles';
-export interface IInput extends HTMLAttributes<HTMLIonInputElement> {
+export interface ITextarea extends HTMLAttributes<HTMLIonTextareaElement> {
     label: string;
-    placeholder?: string;
-    type?: "date" | "datetime-local" | "email" | "month" | "number" | "password" | "search" | "tel" | "text" | "time" | "url" | "week";
-    required?: boolean;
     name: string;
+    placeholder?: string;
+    autoGrow?: boolean;
+    type?: "date" | "datetime-local" | "email" | "month" | "number" | "password" | "search" | "tel" | "text" | "time" | "url" | "week";
+    rows?: number;
+    required?: boolean;
+    readonly?: boolean;
     inputmode?: "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url" | undefined;
     enterkeyhint?: "done" | "enter" | "go" | "next" | "previous" | "search" | "send" | undefined;
-    clearInput?: boolean;
+    clearTextarea?: boolean;
 }
-const StyledInput = styled(IonInput)`
+const StyledTextarea = styled(IonTextarea)`
     margin-top: ${SpacingEnum['s-1']};
     --padding-start: ${SpacingEnum['s-1']} !important;
     --padding-end: ${SpacingEnum['s-1']} !important;
@@ -28,11 +31,11 @@ const StyledItem = styled(IonItem)`
     --inner-padding-end: 0 !important;
     --padding-start: 0 !important;
     --padding-end: 0 !important;
-    ${StyledInput}{
+    ${StyledTextarea}{
         border-radius: 0.5em;
         border: 2px solid var(--border-color);
     }
-    &.item-interactive.item-has-focus ${StyledInput}{
+    &.item-interactive.item-has-focus ${StyledTextarea}{
         border: 2px solid var(--highlight-background);
     }
     &.item-interactive.item-has-focus ${Label}{
@@ -40,20 +43,17 @@ const StyledItem = styled(IonItem)`
     }
 `
 
-
-
-const Input: React.FC<IInput> = ({label,...props}) => {
+const Textarea: React.FC<ITextarea> = ({ label, ...props }) => {
     return (
         <StyledItem lines="none">
             <IonLabel position="stacked">
                 <Label size="large">
-
-                {label}
+                    {label}
                 </Label>
-                </IonLabel>
-            <StyledInput {...props}></StyledInput>
+            </IonLabel>
+            <StyledTextarea {...props}></StyledTextarea>
         </StyledItem>
     )
 }
 
-export default Input;
+export default Textarea;
