@@ -36,8 +36,8 @@ const Home: React.FC = () => {
               <Textarea label="Home" name="Home" rows={3}></Textarea>
             </Stack>
             <Switcher>
-              <Button fill="outline">Save</Button>
-              <Button>Send</Button>
+              <Button fill="outline" label="Save"/>
+              <Button label="Send"/>
             </Switcher>
           </Cover>
         </Box>

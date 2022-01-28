@@ -7,10 +7,9 @@ interface IButton extends HTMLAttributes<HTMLIonButtonElement> {
    *  Provide a text for the button element
    * 
    */
-  children: React.ReactNode;
+  label: string;
   isLoading?: boolean;
   shape?: "round";
-  //   variant: "primary" | "secondary";
   icon?: string;
   expand?: "block" | "full" | undefined;
   mode?: "ios" | "md";
@@ -20,18 +19,25 @@ interface IButton extends HTMLAttributes<HTMLIonButtonElement> {
   color?: "primary" | "secondary" | "medium" | "tertiary" | "light" | "dark"; // TODO: add the rest
 }
 
+const ButtonDefaultProps: IButton = {
+  label: "",
+  isLoading: false,
+  fill: "solid",
+  color: "primary",
+  iconSlot: "start"
+}
 const Button: React.FC<IButton> = ({
-  children,
-  isLoading = false,
-  fill = "solid",
-  color = "primary",
+  isLoading,
+  fill,
+  color,
   icon,
   shape,
-  iconSlot = "start",
+  iconSlot,
+  label,
   ...props
 }) => {
   return (
-    <IonButton style={{ position: "relative" }} fill={fill} shape={shape} color={color}  {...props}>
+    <IonButton mode="ios" style={{ position: "relative" }} fill={fill} shape={shape} color={color}  {...props}>
       {isLoading
         && (
           <div style={{ position: "absolute", top: "0", left: "0", width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -40,13 +46,14 @@ const Button: React.FC<IButton> = ({
         )
       }
       <>
-        {icon && <IonIcon style={{ visibility: isLoading ? "hidden" : "visible", marginRight: "0.5em", margin: !children ? 0 : undefined}} icon={icon} slot={iconSlot}/>}
-        {children && <ButtonText size={props.size ? props.size : "default"} isVisible={!isLoading}>
-          {children}
+        {icon && <IonIcon style={{ visibility: isLoading ? "hidden" : "visible", marginRight: "0.5em", margin: !label ? 0 : undefined}} icon={icon} slot={iconSlot}/>}
+        {label && <ButtonText size={props.size ? props.size : "default"} isVisible={!isLoading}>
+          {label}
         </ButtonText>}
       </>
     </IonButton>
   );
 };
 
+Button.defaultProps = ButtonDefaultProps;
 export default Button;

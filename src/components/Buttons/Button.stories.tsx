@@ -14,7 +14,7 @@ export default {
     },
     args: {
         //👇 Now all Button stories will have this label.
-        children: "Click me ",
+        label: "Click me",
         fill: "solid",
         isLoading: false,
         mode: "ios"
@@ -28,7 +28,6 @@ const ButtonTemplate: ComponentStory<typeof Button> = (args) => <Button {...args
 // export const Primary = ButtonTemplate.bind({})
 export const Default= ButtonTemplate.bind({})
 export const Secondary = ButtonTemplate.bind({})
-export const ButtonWithIconOnly = ButtonTemplate.bind({})
 
 //👇 We adapt each instances by providing new attributes 
 
@@ -38,7 +37,3 @@ Secondary.args = {
     color: "secondary"
 }
 
-ButtonWithIconOnly.args = {
-    icon: arrowForward,
-    children: ""
-}
