@@ -1,7 +1,7 @@
 import React from "react";
 import { IonBackButton, IonButton, IonButtons, IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/react';
 // import { home } from "ionicons/icons";
-import Heading from "../Buttons/Headings/Heading";
+import Heading from "../Headings/Heading";
 
 interface HeaderProps {
     label?: string;

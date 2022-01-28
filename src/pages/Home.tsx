@@ -1,6 +1,6 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import Button from '../components/Buttons/Button';
-import Heading from '../components/Buttons/Headings/Heading';
+import Heading from '../components/Headings/Heading';
 import Input from '../components/Forms/Input/Input';
 import Textarea from '../components/Forms/Input/Textarea';
 import { Switcher, Box, Cover, Sidebar, Stack } from '../layouts';

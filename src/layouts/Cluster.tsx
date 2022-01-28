@@ -7,22 +7,32 @@
 import styled, { css } from "styled-components";
 import { SpacingEnum } from "../theme/globalStyles";
 
-interface ClusterProps {
-    align?: string;
-    justify?: string;
-    space?: SpacingEnum;
+export interface ClusterProps {
+    /** A CSS align-items value */
+    align?: "stretch" | "center" | "flex-start" | "flex-end";
+    /** A CSS justify-content value */
+    justify?: "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly";
+    /**A CSS gap value. The minimum space between the clustered child elements. */
+    space?: string;
+}
+
+const ClusterDefaultProps: ClusterProps = {
+    align: "flex-start",
+    justify: "flex-start",
+    space: SpacingEnum.s1
 }
 
 const Cluster = styled.div<ClusterProps>`
-    > * {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: ${props => props.align || 'center'};
-    justify-content: ${props => props.justify || 'flex-start'};
-    gap: ${props => props.space || SpacingEnum.s1}
-    }
+    
+        display: flex;
+        flex-wrap: wrap;
+        align-items: ${props => props.align || ClusterDefaultProps.align};
+        justify-content: ${props => props.justify || ClusterDefaultProps.justify};
+        gap: ${props => props.space || ClusterDefaultProps.space}
+    
 
 `
+Cluster.defaultProps = ClusterDefaultProps;
 
 export default Cluster;
 

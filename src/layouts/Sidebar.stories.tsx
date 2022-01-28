@@ -1,7 +1,7 @@
 import Sidebar from './Sidebar';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Box from './Box';
-import Heading from '../components/Buttons/Headings/Heading';
+import Heading from '../components/Headings/Heading';
 import Input from '../components/Forms/Input/Input';
 
 

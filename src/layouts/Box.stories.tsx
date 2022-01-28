@@ -1,6 +1,6 @@
 import Box from './Box';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Heading from '../components/Buttons/Headings/Heading';
+import Heading from '../components/Headings/Heading';
 import { Center, Stack } from '.';
 import { MediumParagraph } from '../theme/globalStyles';
 
@@ -46,8 +46,7 @@ const BoxTemplate: ComponentStory<typeof Box> = (args) => (
         <Center max="80ch">
             <Stack>
                 <Box>
-
-                <Heading level="1">Horizontally Centered Element</Heading>
+                    <Heading level="1">Horizontally Centered Element</Heading>
                 </Box>
                 <Box>
                     <MediumParagraph>

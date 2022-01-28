@@ -1,7 +1,7 @@
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg } from '@ionic/react';
 import React from 'react';
 import styled, { css } from 'styled-components';
-import Heading from '../Buttons/Headings/Heading';
+import Heading from '../Headings/Heading';
 
 interface ICard {
     title?: string;

@@ -1,27 +1,38 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ColorEnum, SpacingEnum } from "../theme/globalStyles";
 
-interface BoxProps{
+export interface BoxProps{
+    /** A CSS border-width value */
     borderWidth?: string;
+    /** A CSS padding value */
     padding?: string;
+    /**Whether to apply an inverted theme. Only recommended for greyscale designs. */
     invert?: boolean;
 }
 
-const Box = styled.div<BoxProps>`
+const BoxDefaultProps :BoxProps = {
+    padding: SpacingEnum.s1,
+    borderWidth: SpacingEnum.borderThin,
+    invert: false
     
-    background-color: inherit;
-    border: ${props => props.borderWidth} solid;
-    border-width: ${props => props.borderWidth};
-    display: block;
-    padding: ${props => props.padding || SpacingEnum.s1};
+}
 
-    ${props => props.invert ? `
-    background-color: ${ColorEnum.LIGHT};
-    filter: invert(100%);` : ''}
-
+const Box = styled.div<BoxProps>`    
+    padding: ${props => props.padding || BoxDefaultProps.padding};
+    border: ${props => props.borderWidth || BoxDefaultProps.borderWidth} solid;
     /* ↓ For high contrast mode */
-    outline: var(--border-thin) solid transparent;
-    outline-offset: calc(var(--border-thin) * -1);
-`
+    outline: ${BoxDefaultProps.borderWidth} solid transparent;
+    outline-offset: calc(${BoxDefaultProps.borderWidth} * -1);
+    background-color: ${ColorEnum.LIGHT};
+    color: ${ColorEnum.DARK};
+    display: block;
 
+    ${({invert}) => invert && css`
+        background-color: ${ColorEnum.DARK};
+        color: ${ColorEnum.LIGHT};
+            
+    `}
+
+`
+Box.defaultProps = BoxDefaultProps;
 export default Box;

@@ -1,12 +1,12 @@
-import Center from './Center';
+import Switcher from './Switcher';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Box from './Box';
-import Heading from '../components/Headings/Heading';
+import Card from '../components/Cards/Card';
+
 
 
 export default {
-    title: "Layouts/Center",
-    component: Center,
+    title: "Layouts/Switcher",
+    component: Switcher,
     argTypes: {
         // onClick: {action: 'clicked'},
         as: {
@@ -31,38 +31,38 @@ export default {
         },
     },
     args: {
-        //👇 Now all Center stories will have this label.
+        //👇 Now all Switcher stories will have this label.
         // children: "Click me ",
+        space:"0"
         // fill: "solid",
         // isLoading: false,
         // mode: "ios"
     }
-} as ComponentMeta<typeof Center>;
+} as ComponentMeta<typeof Switcher>;
 
 //👇 We create a “template” of how args map to rendering
-const CoverTemplate: ComponentStory<typeof Center> = (args) => (
-<Center {...args} >
-    <Box data-centered borderWidth="0">
-        <Heading level="1">Horizontally Centered Element</Heading> 
-    </Box>
-</Center>
+const SwitcherTemplate: ComponentStory<typeof Switcher> = (args) => (
+    <Switcher {...args} >
+        <Card size="full"/>
+        <Card size="full"/>
+        <Card size="full"/>
+    </Switcher>
 );
 
-//👇 We base new Center instances on our “template” 
-// export const Primary = CoverTemplate.bind({})
-export const Default= CoverTemplate.bind({})
-// export const RecursiveCover = CoverTemplate.bind({})
-// export const SplittedCover = CoverTemplate.bind({})
+//👇 We base new Switcher instances on our “template” 
+// export const Primary = SwitcherTemplate.bind({})
+export const Default = SwitcherTemplate.bind({})
+// export const RecursiveSwitcher = SwitcherTemplate.bind({})
+// export const SplittedSwitcher = SwitcherTemplate.bind({})
 
 //👇 We adapt each instances by providing new attributes 
 
 Default.args = {
-    andText: true
 }
 
-// SplittedCover.args = {
+// SplittedSwitcher.args = {
 //     splitAfter: 1
 // }
-// RecursiveCover.args = {
+// RecursiveSwitcher.args = {
 //     recursive: true
 // }

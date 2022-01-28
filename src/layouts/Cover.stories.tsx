@@ -1,7 +1,7 @@
 import Cover from './Cover';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Box from './Box';
-import Heading from '../components/Buttons/Headings/Heading';
+import Heading from '../components/Headings/Heading';
 
 
 export default {

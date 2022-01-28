@@ -1,12 +1,21 @@
-/** 
- * Stack components for vertically aligned elements
-  */
 import styled, { css } from "styled-components";
 import { SpacingEnum } from "../theme/globalStyles";
 
-interface StackProps {
+/** 
+ * Stack components for vertically aligned elements
+  */
+export interface StackProps {
+    /**
+     * Whether the spaces apply recursively (i.e. regardless of nesting level)
+     */
     recursive?: boolean;
-    space?: SpacingEnum;
+    /**
+     * A CSS margin value
+     */
+    space?: string;
+    /**
+     * The element after which to split the stack with an auto margin
+     */
     splitAfter?: number;
 }
 
@@ -39,6 +48,11 @@ const Stack = styled.div<StackProps>`
         `
         }
 `
+
+Stack.defaultProps = {
+    space: SpacingEnum.s1,
+    recursive: false,
+}
 
 export default Stack;
 

@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { ColoredProps } from '../../../theme/globalStyles';
+import { ColoredProps } from '../../theme/globalStyles';
 
 
 const Heading1 = styled.h1<ColoredProps>`
