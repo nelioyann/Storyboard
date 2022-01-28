@@ -1,6 +1,6 @@
 import { IonButton, IonIcon, IonSpinner } from "@ionic/react";
 import React, { HTMLAttributes } from "react";
-import { ButtonText } from "../../theme/globalStyles";
+import { ButtonText, ColorLabelsEnum } from "../../theme/globalStyles";
 
 interface IButton extends HTMLAttributes<HTMLIonButtonElement> {
   /**
@@ -16,15 +16,16 @@ interface IButton extends HTMLAttributes<HTMLIonButtonElement> {
   size?: "small" | "default" | "large";
   fill?: "clear" | "outline" | "solid";
   iconSlot?: "start" | "end";
-  color?: "primary" | "secondary" | "medium" | "tertiary" | "light" | "dark"; // TODO: add the rest
+  color?: ColorLabelsEnum;
 }
 
 const ButtonDefaultProps: IButton = {
   label: "",
   isLoading: false,
   fill: "solid",
-  color: "primary",
-  iconSlot: "start"
+  color: ColorLabelsEnum.PRIMARY,
+  iconSlot: "start",
+  mode: "ios"
 }
 const Button: React.FC<IButton> = ({
   isLoading,
@@ -37,7 +38,7 @@ const Button: React.FC<IButton> = ({
   ...props
 }) => {
   return (
-    <IonButton mode="ios" style={{ position: "relative" }} fill={fill} shape={shape} color={color}  {...props}>
+    <IonButton disabled={isLoading} style={{ position: "relative"}} fill={fill} shape={shape} color={color}  {...props}>
       {isLoading
         && (
           <div style={{ position: "absolute", top: "0", left: "0", width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>

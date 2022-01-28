@@ -1,14 +1,23 @@
 import { IonButton, IonIcon } from '@ionic/react';
+import { rocket } from 'ionicons/icons';
 import React, { HTMLAttributes } from 'react';
+import { ColorLabelsEnum } from '../../theme/globalStyles';
 import "./IconButton.css"
 
 interface IIconButton extends HTMLAttributes<HTMLIonButtonElement> {
     icon: string;
     shape?: "round";
-
     fill?: "clear" | "outline" | "solid";
     size?: "small" | "default" | "large";
-    color?: "primary" | "secondary" | "medium" | "tertiary" | "light" | "dark"; // TODO: add the rest
+    color?: ColorLabelsEnum; // TODO: add the rest
+}
+
+const IconButtonDefaultProps:IIconButton = {
+    icon: rocket,
+    fill: "solid",
+    color: ColorLabelsEnum.PRIMARY,
+    size: "large",
+    shape: "round"
 }
 const IconButton: React.FC<IIconButton> = ({ icon, ...props }) => {
     return (
@@ -18,11 +27,6 @@ const IconButton: React.FC<IIconButton> = ({ icon, ...props }) => {
     );
 };
 
-IconButton.defaultProps = {
-    fill: "solid",
-    color: "primary",
-    size: "large",
-    shape: "round"
-}
+IconButton.defaultProps = IconButtonDefaultProps;
 
 export default IconButton;

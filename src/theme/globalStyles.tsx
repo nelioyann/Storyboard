@@ -24,13 +24,28 @@ export enum FontWeightEnum {
     "LIGHT" = "var(--font-light)",
 }
 
-export enum ColorEnum {
+export enum ColorVariablesEnum {
     "PRIMARY" = "var(--ion-color-primary)",
     "SECONDARY" = "var(--ion-color-secondary)",
     "TERTIARY" = "var(--ion-color-tertiary)",
     "LIGHT" = "var(--ion-color-light)",
     "DARK" = "var(--ion-color-dark)",
     "MEDIUM" = "var(--ion-color-medium)",
+    "SUCCESS" = "var(--ion-color-success)",
+    "DANGER" = "var(--ion-color-danger)",
+    "WARNING" = "var(--ion-color-warning)",
+}
+export enum ColorLabelsEnum {
+    "PRIMARY" = "primary",
+    "SECONDARY" = "secondary",
+    "TERTIARY" = "tertiary",
+    "LIGHT" = "light",
+    "DARK" = "dark",
+    "MEDIUM" = "medium",
+    "SUCCESS" = "success",
+    "DANGER" = "danger",
+    "WARNING" = "warning",
+
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -42,7 +57,7 @@ const GlobalStyle = createGlobalStyle`
 export default GlobalStyle;
 
 export interface ColoredProps {
-    color?: "primary" | "secondary" | "tertiary" | "medium" | "dark" | "light" | "warning" | "danger" ;
+    color?: ColorLabelsEnum ;
 }
 
 

@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { ColoredProps } from '../../theme/globalStyles';
+import { ColoredProps, ColorLabelsEnum } from '../../theme/globalStyles';
 
 
 const Heading1 = styled.h1<ColoredProps>`
@@ -55,22 +55,29 @@ const Heading6 = styled.h6<ColoredProps>`
 `
 
 interface IHeading extends HTMLAttributes<HTMLHeadingElement>{
-    children: React.ReactNode;
+    children: string;
     level: "1" | "2" | "3" | "4" | "5" | "6" ;
-    color?: "primary" | "secondary" | "tertiary" | "medium" | "dark" | "light" | "warning" | "danger" ;
+    color?: ColorLabelsEnum ;
 }
-const Heading: React.FC<IHeading> = ({children, level = "1", color = "primary",...props}) => {
+
+const HeadingDefaultProps: IHeading = {
+    children: "", 
+    level: "4",
+    color: ColorLabelsEnum.DARK
+}
+const Heading: React.FC<IHeading> = ({level, color, children}) => {
     return (
         <>
-        {level === "1" && <Heading1 color={color} {...props} >{children}</Heading1>}
-        {level === "2" && <Heading2 color={color} {...props} >{children}</Heading2>}
-        {level === "3" && <Heading3 color={color} {...props} >{children}</Heading3>}
-        {level === "4" && <Heading4 color={color} {...props} >{children}</Heading4>}
-        {level === "5" && <Heading5 color={color} {...props} >{children}</Heading5>}
-        {level === "6" && <Heading6 color={color} {...props} >{children}</Heading6>}
+        {level === "1" && <Heading1 color={color} >{children}</Heading1>}
+        {level === "2" && <Heading2 color={color} >{children}</Heading2>}
+        {level === "3" && <Heading3 color={color} >{children}</Heading3>}
+        {level === "4" && <Heading4 color={color} >{children}</Heading4>}
+        {level === "5" && <Heading5 color={color} >{children}</Heading5>}
+        {level === "6" && <Heading6 color={color} >{children}</Heading6>}
         </>
         
     )
 }
 
+Heading.defaultProps = HeadingDefaultProps
 export default Heading

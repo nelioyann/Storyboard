@@ -25,15 +25,11 @@ export default {
 const ButtonTemplate: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 //👇 We base new button instances on our “template” 
-// export const Primary = ButtonTemplate.bind({})
 export const Default= ButtonTemplate.bind({})
-export const Secondary = ButtonTemplate.bind({})
 
 //👇 We adapt each instances by providing new attributes 
 
 Default.args = {
 }
-Secondary.args = {
-    color: "secondary"
-}
+
 

@@ -18,7 +18,7 @@ import '@ionic/react/css/display.css';
 import '../src/theme/variables.css';
 import '../src/theme/fonts.css';
 
-import {ColorEnum} from '../src/theme/globalStyles';
+import {ColorVariablesEnum} from '../src/theme/globalStyles';
 
 import React from 'react';
 import {IonApp, IonContent, IonPage, setupIonicReact} from "@ionic/react"
@@ -30,7 +30,7 @@ const IonWrapper = ({children}) => {
   return (
     <IonApp>
       <IonPage >
-        <IonContent className="ion-padding" style={{"--background": ColorEnum.LIGHT}}>
+        <IonContent className="ion-padding" style={{"--background": ColorVariablesEnum.LIGHT}}>
           {children}
         </IonContent>
       </IonPage>

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ColorEnum, SpacingEnum } from "../theme/globalStyles";
+import { ColorVariablesEnum, SpacingEnum } from "../theme/globalStyles";
 
 export interface BoxProps{
     /** A CSS border-width value */
@@ -23,13 +23,13 @@ const Box = styled.div<BoxProps>`
     /* ↓ For high contrast mode */
     outline: ${BoxDefaultProps.borderWidth} solid transparent;
     outline-offset: calc(${BoxDefaultProps.borderWidth} * -1);
-    background-color: ${ColorEnum.LIGHT};
-    color: ${ColorEnum.DARK};
+    background-color: ${ColorVariablesEnum.LIGHT};
+    color: ${ColorVariablesEnum.DARK};
     display: block;
 
     ${({invert}) => invert && css`
-        background-color: ${ColorEnum.DARK};
-        color: ${ColorEnum.LIGHT};
+        background-color: ${ColorVariablesEnum.DARK};
+        color: ${ColorVariablesEnum.LIGHT};
             
     `}
 
