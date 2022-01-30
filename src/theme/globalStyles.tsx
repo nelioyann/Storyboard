@@ -5,6 +5,9 @@ import styled, { createGlobalStyle, css } from "styled-components";
 export enum SpacingEnum {
     "measure" = "var(--measure)",
     "borderThin" = "var(--border-thin)",
+    "subtleCurve" = "0.5em", //TODO: Add it everywhere
+    "bigCurve" = "1em", //TODO: Add it everywhere
+    "borderThicc" = "var(--border-thicc)", //TODO: Add it everywhere
     "s-5"= "var(--s-5)",
     "s-4"= "var(--s-4)",
     "s-3"= "var(--s-3)",

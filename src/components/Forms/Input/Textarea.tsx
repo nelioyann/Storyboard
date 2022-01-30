@@ -32,11 +32,11 @@ const StyledItem = styled(IonItem)`
     --padding-start: 0 !important;
     --padding-end: 0 !important;
     ${StyledTextarea}{
-        border-radius: 0.5em;
-        border: 2px solid var(--border-color);
+        border-radius: ${SpacingEnum.subtleCurve};
+        border: ${SpacingEnum.borderThicc} solid var(--border-color);
     }
     &.item-interactive.item-has-focus ${StyledTextarea}{
-        border: 2px solid var(--highlight-background);
+        border: ${SpacingEnum.borderThicc} solid var(--highlight-background);
     }
     &.item-interactive.item-has-focus ${Label}{
         color: var(--highlight-background);

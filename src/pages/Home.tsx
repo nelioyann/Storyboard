@@ -7,21 +7,14 @@ import { Switcher, Box, Cover, Sidebar, Stack } from '../layouts';
 import { Label } from '../theme/globalStyles';
 // import { SpacingEnum } from '../theme/globalStyles';
 import './Home.css';
+import Header from '../components/Headers/Header';
 
 const Home: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Home</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <Header label="Home" mode="ios"/>
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Home</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+        
         <Box padding="0" borderWidth="0">
           <Cover space="2em" minHeight="85vh">
             <Box padding="0" borderWidth="0">

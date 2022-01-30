@@ -11,6 +11,7 @@ export interface ITab {
     path: string;
     label: string;
     icon: string;
+    activeicon?: string; //TODO:
     component: React.FC<{}>;
     isTab: boolean;
     exact?: boolean;
