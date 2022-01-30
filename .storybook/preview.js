@@ -30,7 +30,7 @@ const IonWrapper = ({children}) => {
   return (
     <IonApp>
       <IonPage >
-        <IonContent style={{"--background": ColorVariablesEnum.LIGHT}}>
+        <IonContent >
           {children}
         </IonContent>
       </IonPage>

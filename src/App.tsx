@@ -62,14 +62,6 @@ const App: React.FC = () => (
     <IonReactRouter>
       <SplitPane contentId="side" when={BreakpointsEnum.md} tabs={tabs}/>
       <Tabs tabs={tabs} contentId="tabs" when={BreakpointsEnum.md}/>
-      {/* <IonRouterOutlet>
-        <Route exact path="/tabs/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/tabs/home" />
-        </Route>
-      </IonRouterOutlet> */}
     </IonReactRouter>
   </IonApp>
 );
