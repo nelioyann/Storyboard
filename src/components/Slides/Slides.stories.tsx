@@ -4,7 +4,7 @@ import { arrowForward } from 'ionicons/icons';
 
 
 export default {
-    title: "Molecules/Slides",
+    title: "Molecules/Carousels",
     component: Slides,
     argTypes: {
         onSlideChange: {action: 'changed'},

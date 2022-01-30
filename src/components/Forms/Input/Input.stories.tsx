@@ -4,7 +4,7 @@ import { arrowForward } from 'ionicons/icons';
 
 
 export default {
-    title: "Atoms/Input",
+    title: "Atoms/Fields",
     component: Input,
     argTypes: {
         onIonChange: {action: 'changed'},
@@ -28,10 +28,16 @@ const InputTemplate: ComponentStory<typeof Input> = (args) => <Input {...args} /
 
 //👇 We base new Input instances on our “template” 
 // export const Primary = InputTemplate.bind({})
-export const Default= InputTemplate.bind({})
+export const InputBasic= InputTemplate.bind({})
+export const PasswordField= InputTemplate.bind({})
 
 
 //👇 We adapt each instances by providing new attributes 
 
-Default.args = {
+PasswordField.args = {
+    type: "password",
+    label: "Password",
+    placeholder: "Enter your password",
+    name: "password",
+    autocomplete: "off"
 }

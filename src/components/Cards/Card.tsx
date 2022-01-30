@@ -1,11 +1,13 @@
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg } from '@ionic/react';
+import { IonBadge, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg } from '@ionic/react';
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { ColorLabelsEnum, Label, SpacingEnum } from '../../theme/globalStyles';
 import Heading from '../Headings/Heading';
 
 interface ICard {
     title?: string;
     subtitle?: string;
+    bodyText?: string;
     imageUrl?: string;
     size?: "small" | "full";
 }
@@ -49,17 +51,15 @@ const StyledCardContent = styled(IonCardContent)`
     background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.5) 100%);
 `
 
-const Card: React.FC<ICard> = ({ title = "Title", subtitle = "Subtitle", imageUrl = "https://picsum.photos/300", size = "small" }) => {
+const Card: React.FC<ICard> = ({ bodyText, title = "Title", subtitle = "Subtitle", imageUrl = "https://picsum.photos/300", size = "small" }) => {
     return (
         <StyledCard button={true} mode="ios" $imageUrl={imageUrl} $size={size}>
             <StyledCardHeader>
-                <Heading level="4" color="light">{title}</Heading>
-                <Heading level="6" color="light">{subtitle}</Heading>
+                <Heading level="4" color={ColorLabelsEnum.LIGHT}>{title}</Heading>
+                <Heading level="6" color={ColorLabelsEnum.LIGHT}>{subtitle}</Heading>
             </StyledCardHeader>
-
             <StyledCardContent>
-
-                {/* <IonImg src={src} /> */}
+                <Label color={ColorLabelsEnum.LIGHT}>{bodyText}</Label>
             </StyledCardContent>
         </StyledCard>);
 };

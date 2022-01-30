@@ -34,7 +34,6 @@ const Heading4 = styled.h4<ColoredProps>`
     padding: 0;
     margin: 0;
     /* margin: 2rem 0 1rem; */
-    max-width: 40ch;
     white-space: normal;
     font-size: 1.5rem;
     line-height: 133%;

@@ -2,11 +2,13 @@ import React from "react";
 import { IonBackButton, IonButton, IonButtons, IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/react';
 // import { home } from "ionicons/icons";
 import Heading from "../Headings/Heading";
+import { ColorLabelsEnum } from "../../theme/globalStyles";
+import IconButton from "../Buttons/IconButton";
 
 interface HeaderProps {
     label?: string;
     icon?: string;
-    color?: string;
+    color?: ColorLabelsEnum;
     noBorder?: boolean;
     iconSlot?: "start" | "end" | "";
     withBackButton?: boolean;
@@ -24,18 +26,14 @@ const Header: React.FC<HeaderProps> = ({ color = "light" , noBorder = false, lab
 
                 {/* Center side */}
                 {label && <IonTitle slot="">
-                    <Heading level="4" color="primary"
-                        style={{ margin: "auto", textAlign: "center" }}
-                    >{label}</Heading>
+                    <Heading level="4" style={{ margin: "auto", textAlign: "center" }}>{label}</Heading>
                 </IonTitle>}
 
                 {/* Right side */}
 
                 {icon &&
                     <IonButtons slot={iconSlot}>
-                        <IonButton fill="clear" color="dark" routerLink={iconTargetLink}>
-                            <IonIcon icon={icon}  />
-                        </IonButton>
+                        <IconButton icon={icon} fill="clear" color={ColorLabelsEnum.DARK} routerLink={iconTargetLink}/>
                     </IonButtons>}
             </IonToolbar>
         </IonHeader>

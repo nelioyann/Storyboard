@@ -25,7 +25,8 @@ const ButtonDefaultProps: IButton = {
   fill: "solid",
   color: ColorLabelsEnum.PRIMARY,
   iconSlot: "start",
-  mode: "ios"
+  mode: "ios",
+  expand: "block",
 }
 const Button: React.FC<IButton> = ({
   isLoading,

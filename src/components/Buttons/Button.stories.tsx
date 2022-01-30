@@ -4,7 +4,7 @@ import { arrowForward } from 'ionicons/icons';
 
 
 export default {
-    title: "Atoms/Button",
+    title: "Atoms/Buttons",
     component: Button,
     argTypes: {
         onClick: {action: 'clicked'},
@@ -25,11 +25,9 @@ export default {
 const ButtonTemplate: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 //👇 We base new button instances on our “template” 
-export const Default= ButtonTemplate.bind({})
+export const ButtonPrimary= ButtonTemplate.bind({})
 
 //👇 We adapt each instances by providing new attributes 
 
-Default.args = {
-}
 
 

@@ -4,12 +4,13 @@ import React, { HTMLAttributes } from 'react';
 import { ColorLabelsEnum } from '../../theme/globalStyles';
 import "./IconButton.css"
 
-interface IIconButton extends HTMLAttributes<HTMLIonButtonElement> {
+export interface IIconButton extends HTMLAttributes<HTMLIonButtonElement> {
     icon: string;
     shape?: "round";
     fill?: "clear" | "outline" | "solid";
     size?: "small" | "default" | "large";
-    color?: ColorLabelsEnum; // TODO: add the rest
+    color?: ColorLabelsEnum; 
+    routerLink?: string;
 }
 
 const IconButtonDefaultProps:IIconButton = {

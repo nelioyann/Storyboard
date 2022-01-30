@@ -1,10 +1,10 @@
 import IconButton from './IconButton';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { arrowForward } from 'ionicons/icons';
+import { arrowForward, chevronBack } from 'ionicons/icons';
 
 
 export default {
-    title: "Atoms/IconButton",
+    title: "Atoms/Buttons",
     component: IconButton,
     argTypes: {
         onClick: {action: 'clicked'},
@@ -22,9 +22,12 @@ const ButtonTemplate: ComponentStory<typeof IconButton> = (args) => <IconButton 
 
 //👇 We base new button instances on our “template” 
 // export const Primary = ButtonTemplate.bind({})
-export const Default= ButtonTemplate.bind({})
+export const Icon= ButtonTemplate.bind({})
+export const BackButton= ButtonTemplate.bind({})
 
 //👇 We adapt each instances by providing new attributes 
 
-Default.args = {
+BackButton.args = {
+    icon: chevronBack,
+    fill: "outline"
 }

@@ -22,14 +22,14 @@ const CardTemplate: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 //👇 We base new Card instances on our “template” 
 // export const Primary = CardTemplate.bind({})
 export const Default= CardTemplate.bind({})
-export const Full= CardTemplate.bind({})
+// export const Full= CardTemplate.bind({})
 
 
 //👇 We adapt each instances by providing new attributes 
 
 Default.args = {
 }
-Full.args = {
-    size: 'full',
-    imageUrl: 'https://picsum.photos/2900'
-}
+// Full.args = {
+//     size: 'full',
+//     imageUrl: 'https://picsum.photos/2900'
+// }

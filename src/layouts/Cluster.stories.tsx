@@ -30,11 +30,9 @@ export default {
         },
     },
     args: {
-        //👇 Now all Cluster stories will have this label.
-        // children: "Click me ",
-        // fill: "solid",
-        // isLoading: false,
-        // mode: "ios"
+        space: "0",
+        align: "flex-start",
+        justify: "flex-start",
     }
 } as ComponentMeta<typeof Cluster>;
 

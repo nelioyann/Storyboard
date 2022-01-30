@@ -90,6 +90,12 @@ interface HeadingsProps extends HTMLAttributes<HTMLHeadingElement>{
 
 export const Label = styled.p<ParagraphProps>`
     font-size: 1rem !important;
+    /* ${({ color }) =>
+        color &&
+        css`
+            color: ${color => color ? `var(--ion-color-${color})` : `var(--ion-color-dark-shade)`};
+        `
+    } */
     ${({ size }) =>
         size === "small" &&
         css`

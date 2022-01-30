@@ -4,7 +4,7 @@ import { arrowForward } from 'ionicons/icons';
 
 
 export default {
-    title: "Atoms/Textarea",
+    title: "Atoms/Fields",
     component: Textarea,
     argTypes: {
         onIonChange: {action: 'changed'},
@@ -25,9 +25,7 @@ export default {
 const InputTemplate: ComponentStory<typeof Textarea> = (args) => <Textarea {...args} />;
 
 //👇 We base new Textarea instances on our “template” 
-export const Default= InputTemplate.bind({})
+export const TextareaBasic = InputTemplate.bind({})
 
 
 //👇 We adapt each instances by providing new attributes 
-Default.args = {
-}
