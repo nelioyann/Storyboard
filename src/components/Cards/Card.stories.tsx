@@ -11,7 +11,11 @@ export default {
     args: {
         //👇 Now all Card stories will have this label.
         title: "Title",
-
+    },
+    parameters: {
+        docs: {
+            iframeHeight: '350px'
+        }
     }
 } as ComponentMeta<typeof Card>;
 
@@ -19,12 +23,12 @@ export default {
 const CardTemplate: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
 //👇 We base new Card instances on our “template” 
-export const CardImage = CardTemplate.bind({})
-export const CardSimple= CardTemplate.bind({})
+export const ImageCard = CardTemplate.bind({})
+export const SimpleCard= CardTemplate.bind({})
 
 
 //👇 We adapt each instances by providing new attributes 
-CardSimple.args = {
+SimpleCard.args = {
     layout: "simple",
     title: "Game shop",
     subtitle: "USA, Ville Front"

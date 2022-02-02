@@ -20,10 +20,10 @@ export default {
 
 const HeaderTemplate : ComponentStory<typeof Header> = (args) => <Header {...args}/>
 
-export const Default = HeaderTemplate.bind({})
+export const BasicHeader = HeaderTemplate.bind({})
 export const HeaderWithIcon = HeaderTemplate.bind({})
 
-Default.args = {
+BasicHeader.args = {
   label: "Header"
 }
 HeaderWithIcon.args = {

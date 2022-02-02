@@ -8,19 +8,12 @@ export default {
     component: Slides,
     argTypes: {
         onSlideChange: {action: 'changed'},
-        // mode: {
-        //     control: false
-        // }
     },
-    args: {
-        //👇 Now all Slides stories will have this label.
-        // children: "Click me ",
-        // name: "SlidesName",
-        // label: "Label"
-        // isLoading: false,
-        // mode: "ios"
-        
-    }
+    args: {},
+    parameters: {
+        docs: {
+            iframeHeight: '600px'
+        }}
 } as ComponentMeta<typeof Slides>;
 
 //👇 We create a “template” of how args map to rendering

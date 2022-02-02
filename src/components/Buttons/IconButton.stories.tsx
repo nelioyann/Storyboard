@@ -22,7 +22,7 @@ const ButtonTemplate: ComponentStory<typeof IconButton> = (args) => <IconButton 
 
 //👇 We base new button instances on our “template” 
 // export const Primary = ButtonTemplate.bind({})
-export const Icon= ButtonTemplate.bind({})
+export const Icon_Button= ButtonTemplate.bind({})
 export const BackButton= ButtonTemplate.bind({})
 
 //👇 We adapt each instances by providing new attributes 

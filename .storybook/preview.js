@@ -20,6 +20,7 @@ import '../src/theme/fonts.css';
 
 import {ColorVariablesEnum} from '../src/theme/globalStyles';
 
+import "./conflict-fixes.css"
 import React from 'react';
 import {IonApp, IonContent, IonPage, setupIonicReact} from "@ionic/react"
 setupIonicReact({
@@ -45,3 +46,9 @@ export const decorators = [
     </IonWrapper>
   )
 ]
+
+export const parameters = {
+  docs: {
+    inlineStories: false,
+  },
+}

@@ -1,25 +1,19 @@
 import Input from './Input';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { arrowForward } from 'ionicons/icons';
 
 
 export default {
-    title: "Atoms/Fields",
+    title: "Atoms/FormFields",
     component: Input,
     argTypes: {
         onIonChange: {action: 'changed'},
-        // mode: {
-        //     control: false
-        // }
     },
     args: {
         //👇 Now all Input stories will have this label.
-        // children: "Click me ",
         name: "inputName",
         label: "Label",
         placeholder: "Enter something here..."
-        // isLoading: false,
-        // mode: "ios"
+
     }
 } as ComponentMeta<typeof Input>;
 
@@ -27,14 +21,13 @@ export default {
 const InputTemplate: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 //👇 We base new Input instances on our “template” 
-// export const Primary = InputTemplate.bind({})
-export const InputBasic= InputTemplate.bind({})
-export const PasswordField= InputTemplate.bind({})
+export const BasicInput= InputTemplate.bind({})
+export const PasswordInput= InputTemplate.bind({})
 
 
 //👇 We adapt each instances by providing new attributes 
 
-PasswordField.args = {
+PasswordInput.args = {
     type: "password",
     label: "Password",
     placeholder: "Enter your password",

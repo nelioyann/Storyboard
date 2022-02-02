@@ -4,13 +4,10 @@ import { arrowForward } from 'ionicons/icons';
 
 
 export default {
-    title: "Atoms/Fields",
+    title: "Atoms/FormFields",
     component: Textarea,
     argTypes: {
         onIonChange: {action: 'changed'},
-        // mode: {
-        //     control: false
-        // }
     },
     args: {
         //👇 Now all Textarea stories will have this label.
@@ -25,7 +22,7 @@ export default {
 const InputTemplate: ComponentStory<typeof Textarea> = (args) => <Textarea {...args} />;
 
 //👇 We base new Textarea instances on our “template” 
-export const TextareaBasic = InputTemplate.bind({})
+export const TextareaInput = InputTemplate.bind({})
 
 
 //👇 We adapt each instances by providing new attributes 

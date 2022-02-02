@@ -3,19 +3,16 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 
 export default {
-    title: "Atoms/Fields",
+    title: "Atoms/FormFields",
     component: RadioGroup,
     argTypes: {
-        // onIonChange: {action: 'changed'},
-        // mode: {
-        //     control: false
-        // }
     },
     args: {
-        //👇 Now all RadioGroup stories will have this label.
-        // children: "Click me ",
-        // isLoading: false,
-        // mode: "ios"
+    },
+    parameters: {
+        docs: {
+            iframeHeight: '350px'
+        }
     }
 } as ComponentMeta<typeof RadioGroup>;
 
@@ -24,7 +21,7 @@ const RadioTemplate: ComponentStory<typeof RadioGroup> = (args) => <RadioGroup {
 
 //👇 We base new RadioGroup instances on our “template” 
 // export const Primary = RadioTemplate.bind({})
-export const RadioBasic= RadioTemplate.bind({})
+export const RadioInput= RadioTemplate.bind({})
 
 
 //👇 We adapt each instances by providing new attributes 
