@@ -21,19 +21,20 @@ interface ITabs {
     tabs: ITab[];
     contentId: string;
     when: BreakpointsEnum;
+    noBorder?: boolean;
 }
 
-const Tabs: React.FC<ITabs> = ({ tabs, contentId, when }) => {
+const Tabs: React.FC<ITabs> = ({ tabs, contentId, when, noBorder }) => {
 
     return (
         <IonReactRouter>
-            <IonTabs className={`ion-hide-${when}-up`}>
+            <IonTabs className={`ion-hide-${when}-up `}>
                 <IonRouterOutlet id={contentId}>
                     {tabs.map(({ path, component, id }) => (
                         <Route key={`route-${id}`} path={path} exact={true} component={component} />
                     ))}
                 </IonRouterOutlet>
-                <IonTabBar slot="bottom">
+                <IonTabBar slot="bottom" style={{"--border": noBorder? "none":""}}>
                     {tabs.map(tab => {
                         if (tab.isTab) {
                             return (

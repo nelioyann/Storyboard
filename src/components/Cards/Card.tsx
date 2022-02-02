@@ -1,10 +1,10 @@
 import { IonCard, IonCardContent, IonCardHeader } from '@ionic/react';
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { ColorVariablesEnum, Label, SpacingEnum } from '../../theme/globalStyles';
 import Heading from '../Headings/Heading';
 
-export interface ICard {
+export interface ICard extends HTMLAttributes<HTMLIonCardElement> {
     title?: string;
     subtitle?: string;
     bodyText?: string;
@@ -47,7 +47,7 @@ const StyledCard = styled(IonCard) <CardProps>`
             max-width: ${CardSizesEnum[$size]};
         `
     }
-    ${({ $layout, $imageUrl}) =>
+    ${({ $layout, $imageUrl }) =>
         $layout === "image" &&
         css`
             aspect-ratio: 1/1;
@@ -85,19 +85,19 @@ const CardDefaultProps: ICard = {
     imageUrl: "https://picsum.photos/300"
 }
 
-const Card: React.FC<ICard> = ({ bodyText, layout, title, subtitle, imageUrl, size }) => {
+const Card: React.FC<ICard> = ({ bodyText, layout, title, subtitle, imageUrl, size, ...props }) => {
     return (
-        <StyledCard button={true} mode="ios" $layout={layout} $imageUrl={imageUrl} $size={size}>
+        <StyledCard button={true} mode="ios" $layout={layout} $imageUrl={imageUrl} $size={size} {...props}>
             {layout === "simple" && <StyledCardImage src={imageUrl} />}
-            <StyledCardHeader>
+            {title !== "" && subtitle !== "" && (<StyledCardHeader>
                 {title && <Heading level="4">{title}</Heading>}
                 {subtitle && <Heading level="6">{subtitle}</Heading>}
-            </StyledCardHeader>
-            <StyledCardContent>
+            </StyledCardHeader>)}
+            {bodyText && <StyledCardContent>
                 <Label>
                     {bodyText}
-                    </Label>
-            </StyledCardContent>
+                </Label>
+            </StyledCardContent>}
         </StyledCard>);
 };
 
