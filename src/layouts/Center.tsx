@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { SpacingEnum } from "../theme/globalStyles";
 
 /**
@@ -6,10 +6,12 @@ import { SpacingEnum } from "../theme/globalStyles";
  * @param gutters The minimum space on either side of the content
  * @param andText center the text
  */
-interface CenterProps{
+export interface CenterProps {
     max?: string;
+    /**Also center the texts */
     andText?: boolean;
-    gutters?: string;
+    /**Minimum horizontal padding  */
+    gutters?: SpacingEnum;
     intrinsic?: boolean;
 
 }
@@ -21,16 +23,37 @@ const Center = styled.div<CenterProps>`
     padding-left: ${SpacingEnum.s1};
     padding-right: ${SpacingEnum.s1};
 
-    ${props => props.intrinsic ? `
-    align-items: center;
-    display: flex;
-    flex-direction: column;`
-    : ''}
-    ${({ gutters }) => gutters ? `
-    padding-left: ${gutters};
-    padding-right: ${gutters};`
-    : ''}
-    ${props => props.andText ? `text-align: center;` : ''}
+    ${({ intrinsic }) =>
+        intrinsic &&
+        css`
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            > *{
+                width: 100%;
+            }
+        `
+    }
+    ${({ gutters }) =>
+        gutters &&
+        css`
+            padding-left: ${gutters};
+            padding-right: ${gutters};
+        `
+    }
+    ${({ andText }) =>
+        andText &&
+        css`
+            text-align: center;
+        `
+    }
+
 `
+
+Center.defaultProps = {
+    max: SpacingEnum.measure,
+    andText: true,
+    intrinsic: true
+}
 
 export default Center;

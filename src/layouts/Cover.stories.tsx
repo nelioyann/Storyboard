@@ -30,13 +30,7 @@ export default {
             },
         },
     },
-    args: {
-        //👇 Now all Cover stories will have this label.
-        // children: "Click me ",
-        // fill: "solid",
-        // isLoading: false,
-        // mode: "ios"
-    }
+    args: Cover.defaultProps
 } as ComponentMeta<typeof Cover>;
 
 //👇 We create a “template” of how args map to rendering
@@ -55,17 +49,3 @@ const CoverTemplate: ComponentStory<typeof Cover> = (args) => (
 //👇 We base new Cover instances on our “template” 
 // export const Primary = CoverTemplate.bind({})
 export const Default= CoverTemplate.bind({})
-// export const RecursiveCover = CoverTemplate.bind({})
-// export const SplittedCover = CoverTemplate.bind({})
-
-//👇 We adapt each instances by providing new attributes 
-
-Default.args = {
-}
-
-// SplittedCover.args = {
-//     splitAfter: 1
-// }
-// RecursiveCover.args = {
-//     recursive: true
-// }
