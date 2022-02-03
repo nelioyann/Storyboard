@@ -103,7 +103,7 @@ export const Label = styled.p<ParagraphProps>`
         size === "small" &&
         css`
             font-size: 0.875rem !important;
-            font-weight: ${FontWeightEnum.LIGHT};
+            font-weight: ${FontWeightEnum.REGULAR};
             `
     }
     ${({ size }) =>//useless FIXME:
@@ -124,7 +124,7 @@ export const Label = styled.p<ParagraphProps>`
 `
 export const ButtonText = styled(Label)`
 ${({ isVisible }) =>
-        Boolean(isVisible) === false &&
+        isVisible === false &&
         css`
             visibility: hidden;
         `

@@ -41,12 +41,12 @@ export default {
 
 //👇 We create a “template” of how args map to rendering
 const CoverTemplate: ComponentStory<typeof Cover> = (args) => (
-<Cover {...args} >
+<Cover style={{border: "1px solid black"}} {...args} >
     <Box borderWidth="0">
         Header
     </Box>
     <Box data-centered borderWidth="0">
-        <Heading level="1">Centered Element</Heading> 
+        <Heading level="1">Looks like a 📘 cover, hence the name</Heading> 
     </Box>
     <Box borderWidth="0">Footer: by Yannick Nana</Box>
 </Cover>
