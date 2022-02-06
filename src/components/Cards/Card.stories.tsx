@@ -1,6 +1,5 @@
 import Card from './Card';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { arrowForward } from 'ionicons/icons';
 
 
 export default {
@@ -12,7 +11,11 @@ export default {
     args: {
         //👇 Now all Card stories will have this label.
         title: "Title",
-
+    },
+    parameters: {
+        docs: {
+            iframeHeight: '350px'
+        }
     }
 } as ComponentMeta<typeof Card>;
 
@@ -20,16 +23,13 @@ export default {
 const CardTemplate: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
 //👇 We base new Card instances on our “template” 
-// export const Primary = CardTemplate.bind({})
-export const Default= CardTemplate.bind({})
-// export const Full= CardTemplate.bind({})
+export const ImageCard = CardTemplate.bind({})
+export const SimpleCard= CardTemplate.bind({})
 
 
 //👇 We adapt each instances by providing new attributes 
-
-Default.args = {
+SimpleCard.args = {
+    layout: "simple",
+    title: "Game shop",
+    subtitle: "USA, Ville Front"
 }
-// Full.args = {
-//     size: 'full',
-//     imageUrl: 'https://picsum.photos/2900'
-// }

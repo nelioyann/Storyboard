@@ -19,11 +19,10 @@ export interface ClusterProps {
 const ClusterDefaultProps: ClusterProps = {
     align: "flex-start",
     justify: "flex-start",
-    space: SpacingEnum.s1
+    space: "0"
 }
 
 const Cluster = styled.div<ClusterProps>`
-    
         display: flex;
         flex-wrap: wrap;
         align-items: ${props => props.align || ClusterDefaultProps.align};

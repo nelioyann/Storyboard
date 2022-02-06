@@ -25,7 +25,7 @@ export default {
 const ButtonTemplate: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 //👇 We base new button instances on our “template” 
-export const ButtonPrimary= ButtonTemplate.bind({})
+export const BasicButton= ButtonTemplate.bind({})
 
 //👇 We adapt each instances by providing new attributes 
 

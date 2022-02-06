@@ -2,7 +2,7 @@ import Box from './Box';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Heading from '../components/Headings/Heading';
 import { Center, Stack } from '.';
-import { MediumParagraph } from '../theme/globalStyles';
+import { MediumParagraph, SpacingEnum } from '../theme/globalStyles';
 
 
 export default {
@@ -31,30 +31,13 @@ export default {
             },
         },
     },
-    args: {
-        //👇 Now all Box stories will have this label.
-        // children: "Click me ",
-        // fill: "solid",
-        // isLoading: false,
-        // mode: "ios"
-    }
+    args: Box.defaultProps
 } as ComponentMeta<typeof Box>;
 
 //👇 We create a “template” of how args map to rendering
 const BoxTemplate: ComponentStory<typeof Box> = (args) => (
     <Box {...args} >
-        <Center max="80ch">
-            <Stack>
-                <Box>
-                    <Heading level="1">Horizontally Centered Element</Heading>
-                </Box>
-                <Box>
-                    <MediumParagraph>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sint quod tenetur atque sapiente a culpa molestiae quasi aut excepturi! Necessitatibus repellat molestiae omnis eveniet dolorum temporibus reiciendis perspiciatis laudantium.
-                    </MediumParagraph>
-                </Box>
-            </Stack>
-        </Center>
+        <Heading level="1">Boxed element</Heading>
     </Box>
 );
 
@@ -67,7 +50,7 @@ export const Default = BoxTemplate.bind({})
 //👇 We adapt each instances by providing new attributes 
 
 Default.args = {
-    invert: false
+    padding: SpacingEnum.s1
 }
 
 // SplittedBox.args = {

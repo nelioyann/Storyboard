@@ -14,11 +14,12 @@ interface HeaderProps {
     withBackButton?: boolean;
     backButtonLink?: string
     iconTargetLink?: string;
+    mode?: "ios" | "md"
 }
-const Header: React.FC<HeaderProps> = ({ color = "light" , noBorder = false, label, icon, iconSlot = "end", iconTargetLink, withBackButton = false, backButtonLink = undefined }) => {
+const Header: React.FC<HeaderProps> = ({ color, mode = "md", noBorder = false, label, icon, iconSlot = "end", iconTargetLink, withBackButton = false, backButtonLink = undefined }) => {
     return (
-        <IonHeader mode="md" className={noBorder ? "ion-no-border" : ""}>
-            <IonToolbar color={color}>
+        <IonHeader mode={mode} className={noBorder ? "ion-no-border" : ""}>
+            <IonToolbar color={color} >
                 {/* Left side */}
                 {withBackButton && <IonButtons slot="start">
                     <IonBackButton color="dark" text="" defaultHref={backButtonLink} />

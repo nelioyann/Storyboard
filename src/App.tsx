@@ -1,5 +1,5 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupIonicReact, useIonRouter } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 
@@ -23,7 +23,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import './theme/fonts.css';
 import Tabs, { ITab } from './ui/Content/Tabs/Tabs';
-import { homeOutline, informationOutline } from 'ionicons/icons';
+import { homeOutline, informationOutline, libraryOutline } from 'ionicons/icons';
 import SplitPane, { BreakpointsEnum } from './ui/SplitPane/SplitPane';
 import About from './pages/About';
 import Attributions from './pages/Attributions';
@@ -32,46 +32,40 @@ setupIonicReact();
 
 const tabs: ITab[] = [
   {
-      id: 'home',
-      path: '/tabs/home',
-      label: 'Home',
-      icon: homeOutline,
-      component: Home,
-      isTab: true,
+    id: 'home',
+    path: '/tabs/home',
+    label: 'Home',
+    icon: homeOutline,
+    component: Home,
+    isTab: true,
   },
   {
-      id: 'about',
-      path: '/tabs/about',
-      label: 'About',
-      icon: informationOutline,
-      component: About,
-      isTab: true,
+    id: 'about',
+    path: '/tabs/about',
+    label: 'About',
+    icon: informationOutline,
+    component: About,
+    isTab: true,
 
   },
   {
-      id: 'attributions',
-      path: '/attributions',
-      label: 'Attributions',
-      icon: informationOutline,
-      component: Attributions,
-      isTab: false
+    id: 'attributions',
+    path: '/attributions',
+    label: 'Attributions',
+    icon: libraryOutline,
+    component: Attributions,
+    isTab: false
   },
 ]
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <SplitPane contentId="side" when={BreakpointsEnum.md} tabs={tabs}/>
-      <Tabs tabs={tabs} contentId="tabs" when={BreakpointsEnum.md}/>
-      {/* <IonRouterOutlet>
-        <Route exact path="/tabs/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/tabs/home" />
-        </Route>
-      </IonRouterOutlet> */}
-    </IonReactRouter>
-  </IonApp>
-);
+const App: React.FC = () => {
+  return (
+    <IonApp>
+      <IonReactRouter>
+        <SplitPane contentId="side" when={BreakpointsEnum.md} tabs={tabs} />
+        <Tabs tabs={tabs} contentId="tabs" when={BreakpointsEnum.md} />
+      </IonReactRouter>
+    </IonApp>
+  )
+}
 
 export default App;

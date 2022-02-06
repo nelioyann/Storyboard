@@ -1,6 +1,7 @@
 import Cluster from './Cluster';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { IonChip } from '@ionic/react';
+import Tag from '../components/Tag/Tag';
 
 
 export default {
@@ -29,31 +30,20 @@ export default {
             },
         },
     },
-    args: {
-        space: "0",
-        align: "flex-start",
-        justify: "flex-start",
-    }
+    args: Cluster.defaultProps
 } as ComponentMeta<typeof Cluster>;
 
 //👇 We create a “template” of how args map to rendering
 const BoxTemplate: ComponentStory<typeof Cluster> = (args) => (
     <Cluster {...args} >
-        <IonChip color="primary">Hello</IonChip>
-        <IonChip color="tertiary" outline>Hello World²</IonChip>
-        <IonChip color="danger">Hello from the other side</IonChip>
-        <IonChip color="primary">Hello</IonChip>
-        <IonChip color="tertiary" outline>Hello World²</IonChip>
-        <IonChip color="danger">Hello from the other side</IonChip>
-        <IonChip color="primary">Hello</IonChip>
-        <IonChip color="tertiary" outline>Hello World²</IonChip>
-        <IonChip color="danger">Hello from the other side</IonChip>
-        <IonChip color="primary">Hello</IonChip>
-        <IonChip color="tertiary" outline>Hello World²</IonChip>
-        <IonChip color="danger">Hello from the other side</IonChip>
-        <IonChip color="primary">Hello</IonChip>
-        <IonChip color="tertiary" outline>Hello World²</IonChip>
-        <IonChip color="danger">Hello from the other side</IonChip>
+        <Tag disabled/>
+        <Tag disabled/>
+        <Tag disabled/>
+        <Tag disabled/>
+        <Tag disabled/>
+        <Tag disabled/>
+        <Tag disabled/>
+        <Tag disabled/>
     </Cluster>
 );
 

@@ -5,6 +5,9 @@ import styled, { createGlobalStyle, css } from "styled-components";
 export enum SpacingEnum {
     "measure" = "var(--measure)",
     "borderThin" = "var(--border-thin)",
+    "subtleCurve" = "0.5em", //TODO: Add it everywhere
+    "bigCurve" = "1em", //TODO: Add it everywhere
+    "borderThicc" = "var(--border-thicc)", //TODO: Add it everywhere
     "s-5"= "var(--s-5)",
     "s-4"= "var(--s-4)",
     "s-3"= "var(--s-3)",
@@ -100,7 +103,7 @@ export const Label = styled.p<ParagraphProps>`
         size === "small" &&
         css`
             font-size: 0.875rem !important;
-            font-weight: ${FontWeightEnum.LIGHT};
+            font-weight: ${FontWeightEnum.REGULAR};
             `
     }
     ${({ size }) =>//useless FIXME:
@@ -121,7 +124,7 @@ export const Label = styled.p<ParagraphProps>`
 `
 export const ButtonText = styled(Label)`
 ${({ isVisible }) =>
-        Boolean(isVisible) === false &&
+        isVisible === false &&
         css`
             visibility: hidden;
         `

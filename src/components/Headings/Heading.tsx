@@ -10,6 +10,8 @@ const Heading1 = styled.h1<ColoredProps>`
     line-height: 105%;
     letter-spacing: -1px;
     white-space: normal;
+    padding: 0;
+    margin: 0;
 `
 const Heading2 = styled.h2<ColoredProps>`
     font-weight: var(--font-bold);
@@ -18,6 +20,8 @@ const Heading2 = styled.h2<ColoredProps>`
     line-height: 115%;
     letter-spacing: -1px;
     white-space: normal;
+    padding: 0;
+    margin: 0;
 `
 const Heading3 = styled.h3<ColoredProps>`
     font-weight: var(--font-bold);
@@ -26,6 +30,8 @@ const Heading3 = styled.h3<ColoredProps>`
     line-height: 130%;
     letter-spacing: -1px;
     white-space: normal;
+    padding: 0;
+    margin: 0;
 `
 
 const Heading4 = styled.h4<ColoredProps>`
@@ -37,20 +43,25 @@ const Heading4 = styled.h4<ColoredProps>`
     white-space: normal;
     font-size: 1.5rem;
     line-height: 133%;
+    
 `
 const Heading5 = styled.h5<ColoredProps>`
-    font-weight: var(--font-regular);
+    font-weight: var(--font-bold);
     color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
     font-size: 1.25rem;
     line-height: 130%;
     white-space: normal;
+    padding: 0;
+    margin: 0;
 `
 const Heading6 = styled.h6<ColoredProps>`
-    font-weight: var(--font-regular);
+    font-weight: var(--font-bold);
     color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
     font-size: 1rem;
     line-height: 130%;
     white-space: normal;
+    padding: 0;
+    margin: 0;
 `
 
 interface IHeading extends HTMLAttributes<HTMLHeadingElement>{

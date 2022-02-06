@@ -20,6 +20,7 @@ import '../src/theme/fonts.css';
 
 import {ColorVariablesEnum} from '../src/theme/globalStyles';
 
+import "./conflict-fixes.css"
 import React from 'react';
 import {IonApp, IonContent, IonPage, setupIonicReact} from "@ionic/react"
 setupIonicReact({
@@ -30,7 +31,7 @@ const IonWrapper = ({children}) => {
   return (
     <IonApp>
       <IonPage >
-        <IonContent style={{"--background": ColorVariablesEnum.LIGHT}}>
+        <IonContent >
           {children}
         </IonContent>
       </IonPage>
@@ -45,3 +46,9 @@ export const decorators = [
     </IonWrapper>
   )
 ]
+
+export const parameters = {
+  docs: {
+    inlineStories: false,
+  },
+}

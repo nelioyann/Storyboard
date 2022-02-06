@@ -1,20 +1,16 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import Header from '../components/Headers/Header';
 import './Home.css';
+import {ReactComponent as FSC} from '../data/icons/book-open.svg'
+import SvgIcon from '../components/SvgIcon/SvgIcon';
+import { ColorVariablesEnum } from '../theme/globalStyles';
 
 const Attributions: React.FC = () => {
     return (
         <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle>Attributions</IonTitle>
-                </IonToolbar>
-            </IonHeader>
+            <Header label="Attributions" mode="ios"/>
             <IonContent fullscreen>
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle size="large">Attributions</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
+                <SvgIcon Icon={FSC} size={"5em"} color={ColorVariablesEnum.PRIMARY}/>
             </IonContent>
         </IonPage>
     );

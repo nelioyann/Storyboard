@@ -241,4 +241,5 @@ http://ionicframework.com/docs/theming/ */
   --s4: calc(var(--s3) * var(--ratio));
   --s5: calc(var(--s4) * var(--ratio));
   --border-thin: 1px;
+  --border-thicc: 0.2em;
 }
