@@ -8,6 +8,8 @@ export interface BoxProps{
     padding?: string;
     /**Whether to apply an inverted theme. Only recommended for greyscale designs. */
     invert?: boolean;
+    /**Limit the width of the box to the size of its content */
+    maxContent?: boolean
 }
 
 const BoxDefaultProps :BoxProps = {
@@ -23,14 +25,15 @@ const Box = styled.div<BoxProps>`
     /* ↓ For high contrast mode */
     outline: ${BoxDefaultProps.borderWidth} solid transparent;
     outline-offset: calc(${BoxDefaultProps.borderWidth} * -1);
-    /* background-color: ${ColorVariablesEnum.LIGHT}; */
     color: ${ColorVariablesEnum.DARK};
     display: block;
 
     ${({invert}) => invert && css`
-        background-color: ${ColorVariablesEnum.DARK};
-        color: ${ColorVariablesEnum.LIGHT};
-            
+    background-color: ${ColorVariablesEnum.LIGHT};
+        filter: invert(100%);
+    `}
+    ${({maxContent}) => maxContent && css`
+        width: max-content !important;
     `}
 
 `
