@@ -8,7 +8,10 @@ export interface ICard extends HTMLAttributes<HTMLIonCardElement> {
     title?: string;
     subtitle?: string;
     bodyText?: string;
+    header?: boolean;
     imageUrl?: string;
+    routerLink?: string;
+    href?: string;
     layout?: "image" | "simple";
     size?: "small" | "full";
 }
@@ -17,11 +20,12 @@ interface CardProps {
     $imageUrl?: string;
     $size?: "small" | "full";
     $layout?: "image" | "simple";
+    routerLink?: string;
 
 }
 
 enum CardSizesEnum {
-    "small" = "20em",
+    "small" = "18em",
     "full" = "100%"
 }
 
@@ -40,11 +44,25 @@ const StyledCardContent = styled(IonCardContent)`
 const StyledCard = styled(IonCard) <CardProps>`
     background: transparent;
     box-shadow: none;
-    border-radius: 1em; 
+    
+    margin: 0;
     ${({ $size }) =>
         $size !== undefined &&
         css`
             max-width: ${CardSizesEnum[$size]};
+            `
+    }
+    ${({ $size }) =>
+        $size === undefined &&
+        css`
+        max-width: ${CardSizesEnum["small"]};
+            width: 100%;
+        `
+    }
+    ${({ routerLink }) =>
+        routerLink !== undefined &&
+        css`
+            cursor: pointer;
         `
     }
     ${({ $layout, $imageUrl }) =>
@@ -54,6 +72,7 @@ const StyledCard = styled(IonCard) <CardProps>`
             background-image: ${`url(${$imageUrl})`};
             background-repeat: no-repeat;
             background-size: cover;
+            border-radius: 1em; 
             * {
                     color: ${ColorVariablesEnum.LIGHT};
             }
@@ -64,7 +83,7 @@ const StyledCard = styled(IonCard) <CardProps>`
                 padding: ${SpacingEnum.s0};
                 position: absolute;
                 bottom: 0;
-                background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.8) 100%);
+                background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
                 
             }
             ${StyledCardContent}{
@@ -79,20 +98,22 @@ const StyledCard = styled(IonCard) <CardProps>`
 `
 const CardDefaultProps: ICard = {
     layout: "image",
-    title: "Your title",
-    subtitle: "Your subtitle",
-    size: "small",
+    header: true,
+    title: "",
+    subtitle: "",
     imageUrl: "https://picsum.photos/300"
 }
 
-const Card: React.FC<ICard> = ({ bodyText, layout, title, subtitle, imageUrl, size, ...props }) => {
+const Card: React.FC<ICard> = ({ bodyText, layout, header, title, subtitle, routerLink, imageUrl, size, ...props }) => {
     return (
-        <StyledCard button={true} mode="ios" $layout={layout} $imageUrl={imageUrl} $size={size} {...props}>
+        <StyledCard routerLink={routerLink} button={true} mode="ios" $layout={layout} $imageUrl={imageUrl} $size={size} {...props}>
             {layout === "simple" && <StyledCardImage src={imageUrl} />}
-            {title !== "" && subtitle !== "" && (<StyledCardHeader>
-                {title && <Heading level="4">{title}</Heading>}
-                {subtitle && <Heading level="6">{subtitle}</Heading>}
-            </StyledCardHeader>)}
+            {header && (
+                <StyledCardHeader>
+                    {title && title !== "" && <Heading level="4">{title}</Heading>}
+                    {subtitle && subtitle !== "" && <Heading level="6">{subtitle}</Heading>}
+                </StyledCardHeader>
+            )}
             {bodyText && <StyledCardContent>
                 <Label>
                     {bodyText}
