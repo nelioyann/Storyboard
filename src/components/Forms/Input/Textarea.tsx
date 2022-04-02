@@ -1,7 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 import { IonTextarea, IonItem, IonLabel } from '@ionic/react';
 import styled from 'styled-components';
-import { Label, SpacingEnum } from '../../../theme/globalStyles';
+import { Label, ShadowEnum, SpacingEnum } from '../../../theme/globalStyles';
 export interface ITextarea extends HTMLAttributes<HTMLIonTextareaElement> {
     label: string;
     name: string;
@@ -16,7 +16,7 @@ export interface ITextarea extends HTMLAttributes<HTMLIonTextareaElement> {
     clearTextarea?: boolean;
 }
 const StyledTextarea = styled(IonTextarea)`
-    margin-top: ${SpacingEnum['s-1']};
+    margin-top: ${SpacingEnum['s0']};
     --padding-start: ${SpacingEnum['s-1']} !important;
     --padding-end: ${SpacingEnum['s-1']} !important;
     --border-color: var(--ion-item-border-color, var(--ion-border-color, var(--ion-color-step-150, rgba(0, 0, 0, 0.8))));
@@ -31,12 +31,14 @@ const StyledItem = styled(IonItem)`
     --inner-padding-end: 0 !important;
     --padding-start: 0 !important;
     --padding-end: 0 !important;
+    overflow: visible ;
     ${StyledTextarea}{
         border-radius: ${SpacingEnum.subtleCurve};
         border: ${SpacingEnum.borderThicc} solid var(--border-color);
     }
     &.item-interactive.item-has-focus ${StyledTextarea}{
         border: ${SpacingEnum.borderThicc} solid var(--highlight-background);
+        box-shadow: ${ShadowEnum.focus};
     }
     &.item-interactive.item-has-focus ${Label}{
         color: var(--highlight-background);
@@ -47,7 +49,7 @@ const Textarea: React.FC<ITextarea> = ({ label, ...props }) => {
     return (
         <StyledItem lines="none">
             <IonLabel position="stacked">
-                <Label size="large">
+                <Label size="default" weight='bold'>
                     {label}
                 </Label>
             </IonLabel>
