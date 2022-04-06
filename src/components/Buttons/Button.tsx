@@ -1,7 +1,7 @@
 import { IonButton, IonIcon, IonSpinner } from "@ionic/react";
 import React, { HTMLAttributes } from "react";
 import styled from "styled-components";
-import { ButtonText, ColorLabelsEnum, ColorVariablesEnum, SpacingEnum } from "../../theme/globalStyles";
+import { ButtonText, ColorLabelsEnum, ColorVariablesEnum, ShadowEnum, SpacingEnum } from "../../theme/globalStyles";
 
 interface IButton extends HTMLAttributes<HTMLIonButtonElement> {
   /**
@@ -43,6 +43,8 @@ const StyledButton = styled(IonButton)`
 
   &:focus, &:focus-within{
     box-shadow: 0 0 0 0.15rem ${ColorVariablesEnum.LIGHT}, 0 0 0 0.35rem ${ColorVariablesEnum.PRIMARY};
+    /* box-shadow: ${ShadowEnum.focus}; */
+
   }
 `
 

@@ -35,6 +35,10 @@ const StyledCardImage = styled.img`
 const StyledCardHeader = styled(IonCardHeader)`
     width: 100%;
     padding: 0;
+    ${Label} {
+        margin-bottom: 0;
+        margin-top:0 ;
+    }
 `
 const StyledCardContent = styled(IonCardContent)`
     padding-left: 0 !important;
@@ -110,8 +114,8 @@ const Card: React.FC<ICard> = ({ bodyText, layout, header, title, subtitle, rout
             {layout === "simple" && <StyledCardImage src={imageUrl} />}
             {header && (
                 <StyledCardHeader>
-                    {title && title !== "" && <Heading level="4">{title}</Heading>}
-                    {subtitle && subtitle !== "" && <Heading level="6">{subtitle}</Heading>}
+                    {title && title !== "" && <Heading level="5">{title}</Heading>}
+                    {subtitle && subtitle !== "" && <Label >{subtitle}</Label>}
                 </StyledCardHeader>
             )}
             {bodyText && <StyledCardContent>
