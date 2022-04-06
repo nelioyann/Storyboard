@@ -11,7 +11,8 @@ export interface CenterProps {
     /**Also center the texts */
     andText?: boolean;
     /**Minimum horizontal padding  */
-    gutters?: SpacingEnum;
+    gutters?: string;
+    /**Add a wdith to children elements */
     intrinsic?: boolean;
 
 }

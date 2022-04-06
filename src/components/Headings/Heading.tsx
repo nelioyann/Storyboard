@@ -1,35 +1,29 @@
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { ColoredProps, ColorLabelsEnum } from '../../theme/globalStyles';
+import { ColoredProps, ColorLabelsEnum, FontSizeEnum } from '../../theme/globalStyles';
 
 
 const Heading1 = styled.h1<ColoredProps>`
     font-weight: var(--font-bold);
     color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
-    font-size: 3.5rem;
-    line-height: 105%;
-    letter-spacing: -1px;
-    white-space: normal;
+    font-size: ${FontSizeEnum['step-6']};
+    line-height: 1.1;
     padding: 0;
     margin: 0;
 `
 const Heading2 = styled.h2<ColoredProps>`
     font-weight: var(--font-bold);
     color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
-    font-size: 2.5rem;
-    line-height: 115%;
-    letter-spacing: -1px;
-    white-space: normal;
+    font-size: ${FontSizeEnum['step-5']};
+    line-height: 1.2;
     padding: 0;
     margin: 0;
 `
 const Heading3 = styled.h3<ColoredProps>`
     font-weight: var(--font-bold);
     color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
-    font-size: 2rem;
-    line-height: 130%;
-    letter-spacing: -1px;
-    white-space: normal;
+    font-size: ${FontSizeEnum['step-4']};
+    line-height: 1.3;
     padding: 0;
     margin: 0;
 `
@@ -37,29 +31,25 @@ const Heading3 = styled.h3<ColoredProps>`
 const Heading4 = styled.h4<ColoredProps>`
     font-weight: var(--font-bold);
     color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
+    font-size: ${FontSizeEnum['step-3']};
+    line-height: 1.4;
     padding: 0;
     margin: 0;
-    /* margin: 2rem 0 1rem; */
-    white-space: normal;
-    font-size: 1.5rem;
-    line-height: 133%;
     
 `
 const Heading5 = styled.h5<ColoredProps>`
     font-weight: var(--font-bold);
     color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
-    font-size: 1.25rem;
-    line-height: 130%;
-    white-space: normal;
+    font-size: ${FontSizeEnum['step-2']};
+    line-height: 1.5;
     padding: 0;
     margin: 0;
 `
 const Heading6 = styled.h6<ColoredProps>`
     font-weight: var(--font-bold);
     color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark)`};
-    font-size: 1rem;
-    line-height: 130%;
-    white-space: normal;
+    font-size: ${FontSizeEnum['step-1']};
+    line-height: 1.6;
     padding: 0;
     margin: 0;
 `

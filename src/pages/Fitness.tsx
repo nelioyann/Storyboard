@@ -16,7 +16,8 @@ import { Autoplay, Keyboard, Pagination, Scrollbar, Zoom, Swiper as SwiperInterf
 import Card from '../components/Cards/Card';
 import Tabs, { ITab } from '../ui/Content/Tabs/Tabs';
 import Home from './Home';
-import { BreakpointsEnum } from '../ui/SplitPane/SplitPane';
+import { BreakpointsEnum } from '../ui/SplitPane/MainRoutes';
+// import { BreakpointsEnum } from '../ui/SplitPane/SplitPane';
 
 
 export interface IFitness {
@@ -41,7 +42,7 @@ const tabs: ITab[] = [
         path: '#',
         label: '',
         icon: heart,
-        component: Home,
+        Component: Home,
         isTab: true,
     },
     {
@@ -49,7 +50,7 @@ const tabs: ITab[] = [
         path: '#',
         label: '',
         icon: calendar,
-        component: Home,
+        Component: Home,
         isTab: true,
 
     },
@@ -58,7 +59,7 @@ const tabs: ITab[] = [
         path: '#',
         label: '',
         icon: medalOutline,
-        component: Home,
+        Component: Home,
         isTab: true
     },
     {
@@ -66,7 +67,7 @@ const tabs: ITab[] = [
         path: '#',
         label: '',
         icon: bookmark,
-        component: Home,
+        Component: Home,
         isTab: true
     },
 ]

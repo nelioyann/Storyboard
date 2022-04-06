@@ -4,14 +4,15 @@ import './Home.css';
 import {ReactComponent as FSC} from '../data/icons/book-open.svg'
 import SvgIcon from '../components/SvgIcon/SvgIcon';
 import { ColorVariablesEnum } from '../theme/globalStyles';
+import Content from '../ui/Content/Content';
 
 const Attributions: React.FC = () => {
     return (
         <IonPage>
             <Header label="Attributions" mode="ios"/>
-            <IonContent fullscreen>
+            <Content >
                 <SvgIcon Icon={FSC} size={"5em"} color={ColorVariablesEnum.PRIMARY}/>
-            </IonContent>
+            </Content>
         </IonPage>
     );
 };

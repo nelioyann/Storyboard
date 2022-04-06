@@ -8,15 +8,15 @@ import { Label } from '../theme/globalStyles';
 // import { SpacingEnum } from '../theme/globalStyles';
 import './Home.css';
 import Header from '../components/Headers/Header';
+import Content from '../ui/Content/Content';
 
 const Home: React.FC = () => {
   return (
     <IonPage>
       <Header label="Home" mode="ios"/>
-      <IonContent fullscreen>
-        
+      <Content>
         <Box padding="0" borderWidth="0">
-          <Cover space="2em" minHeight="85vh">
+          <Cover noPad space="2em" minHeight="85vh">
             <Box padding="0" borderWidth="0">
               <Heading level="3">Form</Heading>
               <Label size="large">This form is entirely built using bricks of layout.</Label>
@@ -34,7 +34,7 @@ const Home: React.FC = () => {
             </Switcher>
           </Cover>
         </Box>
-      </IonContent>
+      </Content>
     </IonPage>
   );
 };

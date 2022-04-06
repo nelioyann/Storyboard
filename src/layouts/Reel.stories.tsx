@@ -1,11 +1,15 @@
-import Cluster from './Cluster';
+import Reel from './Reel';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import Heading from '../components/Headings/Heading';
+import { Center, Stack } from '.';
+import { MediumParagraph, SpacingEnum } from '../theme/globalStyles';
 import Box from './Box';
+import Card from '../components/Cards/Card';
 
 
 export default {
-    title: "Layouts/Cluster",
-    component: Cluster,
+    title: "Layouts/Reel",
+    component: Reel,
     argTypes: {
         // onClick: {action: 'clicked'},
         as: {
@@ -29,24 +33,21 @@ export default {
             },
         },
     },
-    args: Cluster.defaultProps
-} as ComponentMeta<typeof Cluster>;
+    args: Reel.defaultProps
+} as ComponentMeta<typeof Reel>;
 
 //👇 We create a “template” of how args map to rendering
-const BoxTemplate: ComponentStory<typeof Cluster> = (args) => (
-    <Cluster {...args} >
-        <Box/>
-        <Box/>
-        <Box/>
-        <Box/>
-        <Box/>
-        <Box/>
-        <Box/>
-        <Box/>
-    </Cluster>
+const BoxTemplate: ComponentStory<typeof Reel> = (args) => (
+    <Reel {...args} >
+        <Card/>
+        <Card/>
+        <Card/>
+        <Card/>
+        
+    </Reel>
 );
 
-//👇 We base new Cluster instances on our “template” 
+//👇 We base new Reel instances on our “template” 
 // export const Primary = BoxTemplate.bind({})
 export const Default = BoxTemplate.bind({})
 // export const RecursiveBox = BoxTemplate.bind({})
