@@ -2,13 +2,14 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import Card from '../components/Cards/Card';
 import Header from '../components/Headers/Header';
 import { Grid } from '../layouts';
+import Content from '../ui/Content/Content';
 import './Home.css';
 
 const About: React.FC = () => {
     return (
         <IonPage>
             <Header label="About" mode="ios"/>
-            <IonContent fullscreen>
+            <Content>
                 <Grid min="15em" space="0">
                     <Card size="full"/>
                     <Card size="full"/>
@@ -16,7 +17,7 @@ const About: React.FC = () => {
                     <Card size="full"/>
                     <Card size="full"/>
                 </Grid>
-            </IonContent>
+            </Content>
         </IonPage>
     );
 };

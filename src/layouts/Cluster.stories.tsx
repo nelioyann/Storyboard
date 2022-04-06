@@ -1,7 +1,6 @@
 import Cluster from './Cluster';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { IonChip } from '@ionic/react';
-import Tag from '../components/Tag/Tag';
+import Box from './Box';
 
 
 export default {
@@ -36,14 +35,14 @@ export default {
 //👇 We create a “template” of how args map to rendering
 const BoxTemplate: ComponentStory<typeof Cluster> = (args) => (
     <Cluster {...args} >
-        <Tag disabled/>
-        <Tag disabled/>
-        <Tag disabled/>
-        <Tag disabled/>
-        <Tag disabled/>
-        <Tag disabled/>
-        <Tag disabled/>
-        <Tag disabled/>
+        <Box/>
+        <Box/>
+        <Box/>
+        <Box/>
+        <Box/>
+        <Box/>
+        <Box/>
+        <Box/>
     </Cluster>
 );
 

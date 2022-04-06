@@ -22,48 +22,95 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import './theme/fonts.css';
-import Tabs, { ITab } from './ui/Content/Tabs/Tabs';
 import { homeOutline, informationOutline, libraryOutline } from 'ionicons/icons';
-import SplitPane, { BreakpointsEnum } from './ui/SplitPane/SplitPane';
 import About from './pages/About';
 import Attributions from './pages/Attributions';
 
+
+import HomeLottie from "./data/lotties/home.json";
+import CalendarLottie from "./data/lotties/calendar.json";
+import InfoLottie from "./data/lotties/info.json";
+import UsersLottie from "./data/lotties/users.json";
+import MainRoutes, { BreakpointsEnum } from './ui/SplitPane/MainRoutes';
+import { ITab } from './ui/Content/Tabs/Tabs';
+
+
 setupIonicReact();
 
-const tabs: ITab[] = [
+export const tabs: ITab[] = [
   {
-    id: 'home',
-    path: '/tabs/home',
-    label: 'Home',
-    icon: homeOutline,
-    component: Home,
+    id: 'accueil',
+    path: '/tabs/accueil',
+    label: 'Accueil',
+    icon: HomeLottie,
+    Component: Home,
     isTab: true,
-  },
-  {
-    id: 'about',
-    path: '/tabs/about',
-    label: 'About',
-    icon: informationOutline,
-    component: About,
-    isTab: true,
-
+    isHome: true
   },
   {
     id: 'attributions',
-    path: '/attributions',
+    path: '/tabs/attributions',
     label: 'Attributions',
-    icon: libraryOutline,
-    component: Attributions,
-    isTab: false
+    icon: CalendarLottie,
+    Component: Attributions,
+    isTab: true,
   },
+  // {
+  //   id: 'intervenants',
+  //   path: '/tabs/intervenants',
+  //   label: 'Intervenants',
+  //   icon: UsersLottie,
+  //   Component: Home,
+  //   isTab: true,
+  // }
+  // ,
+  // {
+  //   id: 'contact',
+  //   path: '/tabs/contact',
+  //   label: 'Informations',
+  //   icon: InfoLottie,
+  //   Component: Home,
+  //   isTab: true,
+  // },
+  // {
+  //   id: 'intervenant',
+  //   path: '/tabs/intervenants/:id',
+  //   label: 'Intervenant',
+  //   icon: UsersLottie,
+  //   Component: Home,
+  //   isTab: false,
+  // },
+
+  // {
+  //   id: 'programme',
+  //   path: '/tabs/programmes/:id',
+  //   label: 'Programme',
+  //   icon: CalendarLottie,
+  //   Component: Home,
+  //   isTab: false,
+  // },
+  // {
+  //   id: 'workshop',
+  //   path: '/tabs/programmes/demos/:id',
+  //   label: 'Atelier',
+  //   icon: CalendarLottie,
+  //   Component: Home,
+  //   isTab: false,
+  // },
+  // {
+  //   id: 'directions',
+  //   path: '/tabs/accueil/directions',
+  //   label: 'Lieu',
+  //   icon: people,
+  //   Component: Home,
+  //   isTab: false,
+  // },
 ]
+
 const App: React.FC = () => {
   return (
     <IonApp>
-      <IonReactRouter>
-        <SplitPane contentId="side" when={BreakpointsEnum.md} tabs={tabs} />
-        <Tabs tabs={tabs} contentId="tabs" when={BreakpointsEnum.md} />
-      </IonReactRouter>
+        <MainRoutes when={BreakpointsEnum.md} tabs={tabs} />
     </IonApp>
   )
 }

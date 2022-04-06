@@ -35,6 +35,7 @@ const StyledItem = styled(IonItem)`
     ${StyledTextarea}{
         border-radius: ${SpacingEnum.subtleCurve};
         border: ${SpacingEnum.borderThicc} solid var(--border-color);
+        transform: box-shadow 0.3s ease-in-out ;
     }
     &.item-interactive.item-has-focus ${StyledTextarea}{
         border: ${SpacingEnum.borderThicc} solid var(--highlight-background);

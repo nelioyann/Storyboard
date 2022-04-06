@@ -1,6 +1,6 @@
 import { IonContent, IonPage, ReactComponentOrElement, useIonModal } from '@ionic/react'
 import React, { useEffect } from 'react'
-import Content from '../../ui/Content/Content'
+// import Content from '../../ui/Content/Content'
 import Button from '../Buttons/Button'
 
 interface IModal {

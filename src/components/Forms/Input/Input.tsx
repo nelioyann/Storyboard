@@ -33,6 +33,7 @@ const StyledItem = styled(IonItem)`
     ${StyledInput}{
         border-radius: ${SpacingEnum.subtleCurve};
         border: ${SpacingEnum.borderThicc} solid var(--border-color);
+        transition: all 0.3s ;
     }
     &.item-interactive.item-has-focus ${StyledInput}{
         border: ${SpacingEnum.borderThicc} solid var(--highlight-background);
