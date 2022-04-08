@@ -9,11 +9,14 @@ export default {
         onClick: {action: 'clicked'},
     },
     args: Popover.defaultProps,
-    // parameters: {
-    //     docs: {
-    //         iframeHeight: '350px'
-    //     }
-    // }
+    parameters: {
+        docs: {
+            iframeHeight: '350px',
+            description: {
+                component: "Displays rich content in a portal, triggered by a button."
+            }
+        }
+    }
 } as ComponentMeta<typeof Popover>;
 
 //👇 We create a “template” of how args map to rendering

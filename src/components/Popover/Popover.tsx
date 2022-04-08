@@ -8,7 +8,7 @@ import Heading from '../Headings/Heading';
 
 export interface IPopover {
     defaultOpen: boolean;
-    onDidDismiss: () => void;
+    onDidDismissHandler: () => void;
     Component: React.FC<{}>;
     id: string;
     reference?: "event" | "trigger";
@@ -20,10 +20,12 @@ export interface IPopover {
 const DefaultComponent: React.FC<{}> = () => {
     return (
         <Box borderWidth='0' padding={SpacingEnum['s-3']}>
-            <Stack>
-                <Heading level="4">Popover</Heading>
-                <Input label="Label" name="popover-input" />
-                <Button label='Submit' size='small' />
+            <Stack space={SpacingEnum['s-2']}>
+                <Heading level="6">Popover</Heading>
+                {/* <Input label="Label" name="popover-input" /> */}
+                <Button fill='clear' label='Submit' size='small' />
+                <Button fill='clear' label='Submit' size='small' />
+                <Button fill='clear' label='Submit' size='small' />
             </Stack>
         </Box>
     )
@@ -31,8 +33,8 @@ const DefaultComponent: React.FC<{}> = () => {
 
 const PopoverDefaultProps: IPopover = {
     defaultOpen: false,
-    onDidDismiss: () => { },
-    Component: DefaultComponent ,
+    onDidDismissHandler: () => { },
+    Component: DefaultComponent,
     reference: "event",
     id: "popover-id",
     triggerAction: "click",
@@ -42,20 +44,28 @@ const PopoverDefaultProps: IPopover = {
 
 
 
-const Popover: React.FC<IPopover> = ({ Component, ...props }) => {
-    const [isOpen, setIsOpen] = React.useState(props.defaultOpen);
+const Popover: React.FC<IPopover> = ({ defaultOpen, Component, onDidDismissHandler, ...props }) => {
+    const [isOpen, setIsOpen] = React.useState(defaultOpen);
+    React.useEffect(() => {
+        setIsOpen(defaultOpen);
+    }, [defaultOpen])
+    const onDidDismiss = () => {
+        if (onDidDismissHandler) onDidDismissHandler();
+        setIsOpen(false);
+    }
+
     return (
         <>
-            <Button id={props.id} label="Trigger" />
+            {/* <Button id={props.id} label="Trigger" /> */}
             <IonPopover
                 arrow={true}
                 mode="ios"
                 trigger={props.id}
-                // isOpen={isOpen}
+                isOpen={isOpen}
                 reference={props.reference}
-            // onDidDismiss={() => { setIsOpen(false); props.onDidDismiss() }}
+                onDidDismiss={onDidDismiss}
             >
-                {<Component/>}
+                {<Component />}
             </IonPopover>
         </>
 
