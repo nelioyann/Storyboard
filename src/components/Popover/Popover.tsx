@@ -1,9 +1,10 @@
 import { IonPopover } from '@ionic/react'
 import React from 'react'
 import { Box, Stack } from '../../layouts';
-import { SpacingEnum } from '../../theme/globalStyles';
+import { Label, SpacingEnum } from '../../theme/globalStyles';
 import Button from '../Buttons/Button';
 import Input from '../Forms/Input/Input';
+import Radio from '../Forms/Input/Radio';
 import Heading from '../Headings/Heading';
 
 export interface IPopover {
@@ -21,17 +22,17 @@ const DefaultComponent: React.FC<{}> = () => {
     return (
         <Box borderWidth='0' padding={SpacingEnum['s-3']}>
             <Stack space={SpacingEnum['s-2']}>
-                <Heading level="6">Popover</Heading>
+                <Label>Theme</Label>
                 {/* <Input label="Label" name="popover-input" /> */}
-                <Button fill='clear' label='Submit' size='small' />
-                <Button fill='clear' label='Submit' size='small' />
-                <Button fill='clear' label='Submit' size='small' />
+
+                <Radio name="popover" value="Dark" label='Dark'/>
+                <Radio name="popover" value="Light" label='Light'/>
             </Stack>
         </Box>
     )
 }
 
-const PopoverDefaultProps: IPopover = {
+export const PopoverDefaultProps: IPopover = {
     defaultOpen: false,
     onDidDismissHandler: () => { },
     Component: DefaultComponent,

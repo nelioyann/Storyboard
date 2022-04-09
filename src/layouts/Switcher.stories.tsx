@@ -1,6 +1,7 @@
 import Switcher from './Switcher';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Card from '../components/Cards/Card';
+import Box from './Box';
 
 
 
@@ -43,9 +44,9 @@ export default {
 //👇 We create a “template” of how args map to rendering
 const SwitcherTemplate: ComponentStory<typeof Switcher> = (args) => (
     <Switcher {...args} >
-        <Card size="full"/>
-        <Card size="full"/>
-        <Card size="full"/>
+        <Box></Box>
+        <Box></Box>
+        <Box></Box>
     </Switcher>
 );
 

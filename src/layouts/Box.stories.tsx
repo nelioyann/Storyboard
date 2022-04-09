@@ -37,7 +37,7 @@ export default {
 //👇 We create a “template” of how args map to rendering
 const BoxTemplate: ComponentStory<typeof Box> = (args) => (
     <Box {...args} >
-        <Heading level="1">Boxed element</Heading>
+        Box layout
     </Box>
 );
 

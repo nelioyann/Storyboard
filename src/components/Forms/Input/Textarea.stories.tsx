@@ -1,13 +1,14 @@
 import Textarea from './Textarea';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { arrowForward } from 'ionicons/icons';
+import { Box } from '../../../layouts';
 
 
 export default {
     title: "Atoms/FormFields",
     component: Textarea,
     argTypes: {
-        onIonChange: {action: 'changed'},
+        onIonChange: { action: 'changed' },
     },
     args: {
         //👇 Now all Textarea stories will have this label.
@@ -19,7 +20,11 @@ export default {
 } as ComponentMeta<typeof Textarea>;
 
 //👇 We create a “template” of how args map to rendering
-const InputTemplate: ComponentStory<typeof Textarea> = (args) => <Textarea {...args} />;
+const InputTemplate: ComponentStory<typeof Textarea> = (args) => (
+    <Box>
+        <Textarea {...args} />
+    </Box>
+)
 
 //👇 We base new Textarea instances on our “template” 
 export const TextareaInput = InputTemplate.bind({})

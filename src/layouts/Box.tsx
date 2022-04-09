@@ -14,7 +14,7 @@ export interface BoxProps{
 
 const BoxDefaultProps :BoxProps = {
     padding: SpacingEnum.s1,
-    borderWidth: SpacingEnum.borderThin,
+    borderWidth: SpacingEnum.borderThicc,
     invert: false
     
 }

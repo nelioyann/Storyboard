@@ -1,5 +1,6 @@
 import { IonAlert } from '@ionic/react'
 import React from 'react'
+import  useToast  from '../Toasts/useToast';
 
 
 interface IAlertDialogButton {
@@ -49,8 +50,10 @@ const AlertDialogDefaultProps: IAlertDialog = {
 }
 const AlertDialog: React.FC<IAlertDialog> = ({ defaultOpen, onDidDismissHandler, ...props }) => {
     const [isOpen, setIsOpen] = React.useState(defaultOpen);
+    const notify = useToast();
     React.useEffect(() => {
         setIsOpen(defaultOpen);
+        if(defaultOpen) notify("AlertDialog is open", "success");
     }, [defaultOpen])
     const onDidDismiss = () => {
         if (onDidDismissHandler) onDidDismissHandler();

@@ -1,7 +1,7 @@
 import { IonItem, IonLabel, IonRadio } from '@ionic/react';
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { ColorVariablesEnum, LargeButton } from '../../../theme/globalStyles';
+import { ColorVariablesEnum, Label, LargeButton } from '../../../theme/globalStyles';
 
 export interface IRadio extends HTMLAttributes<HTMLIonRadioElement> {
     /**
@@ -17,15 +17,18 @@ export interface IRadio extends HTMLAttributes<HTMLIonRadioElement> {
 }
 
 const StyledItem = styled(IonItem)`
-    border: 0.2em solid ${ColorVariablesEnum.MEDIUM};
+    /* border: 0.2em solid ${ColorVariablesEnum.MEDIUM}; */
     border-radius: 8px;
     &.item-radio-checked{
         --color: ${ColorVariablesEnum.PRIMARY};
         --background: var(--ion-color-light);
-        border: 0.2em solid ${ColorVariablesEnum.PRIMARY};
+        /* border: 0.2em solid ${ColorVariablesEnum.PRIMARY}; */
         ${LargeButton}{
             color: ${ColorVariablesEnum.PRIMARY};
         }
+    }
+    &:hover{
+        --background: rgba(var(--ion-color-primary-rgb), 0.04);
     }
 `
 
@@ -37,8 +40,8 @@ const RadioDefaultProps: IRadio = {
 
 const Radio: React.FC<IRadio> = ({ label, value, name, ...RadioDefaultProps }) => {
     return (
-        <StyledItem mode="ios" lines="none">
-            <LargeButton>{label}</LargeButton>
+        <StyledItem mode="ios" lines="none" button={true}>
+            <Label weight='bold'>{label}</Label>
             <IonRadio {...RadioDefaultProps} slot="start" name={name} value={value} />
         </StyledItem>
     );

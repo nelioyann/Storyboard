@@ -120,7 +120,8 @@ interface HeadingsProps extends HTMLAttributes<HTMLHeadingElement> {
 
 export const Label = styled.p<ParagraphProps>`
     font-size: ${FontSizeEnum["step-0"]};
-
+    margin-top: 0 ;
+    margin-bottom: 0;
     /* ${({ color }) =>
         color &&
         css`
