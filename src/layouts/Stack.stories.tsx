@@ -40,30 +40,30 @@ export default {
 
 //👇 We create a “template” of how args map to rendering
 const StackTemplate: ComponentStory<typeof Stack> = (args) => (
-<Stack {...args} >
-    <Box>
-        <Box/>
-        <Box/>
-    </Box>
-    <Box></Box>
-    <Box></Box>
-</Stack>
+    <Stack {...args} >
+        <Box></Box>
+        <Box>
+            <Box />
+            <Box>
+                <Box />
+                <Box />
+            </Box>
+        </Box>
+        <Box></Box>
+        <Box></Box>
+    </Stack>
 );
 
 //👇 We base new Stack instances on our “template” 
 // export const Primary = StackTemplate.bind({})
-export const Default= StackTemplate.bind({})
-export const RecursiveStack = StackTemplate.bind({})
-export const SplittedStack = StackTemplate.bind({})
+export const Default = StackTemplate.bind({})
+// export const RecursiveStack = StackTemplate.bind({})
+// export const SplittedStack = StackTemplate.bind({})
 
 //👇 We adapt each instances by providing new attributes 
 
 Default.args = {
-}
-
-SplittedStack.args = {
     splitAfter: 1
 }
-RecursiveStack.args = {
-    recursive: true
-}
+
+

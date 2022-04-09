@@ -39,11 +39,12 @@ export default {
 //👇 We create a “template” of how args map to rendering
 const BoxTemplate: ComponentStory<typeof Reel> = (args) => (
     <Reel {...args} >
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        
+        <Box/>
+        <Box/>
+        <Box/>
+        <Box/>
+        <Box/>
+        <Box/>
     </Reel>
 );
 

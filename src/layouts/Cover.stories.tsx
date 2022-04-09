@@ -37,10 +37,10 @@ export default {
 const CoverTemplate: ComponentStory<typeof Cover> = (args) => (
 <Cover style={{border: "1px solid black"}} {...args} >
     <Box borderWidth="0">
-        Header
+        Storyboard
     </Box>
     <Box data-centered borderWidth="0">
-        <Heading level="1">Looks like a 📘 cover, hence the name</Heading> 
+        Looks like a 📘 cover, hence the name
     </Box>
     <Box borderWidth="0">Footer: by Yannick Nana</Box>
 </Cover>

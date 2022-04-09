@@ -1,14 +1,16 @@
 import { IonPopover } from '@ionic/react'
 import React from 'react'
 import { Box, Stack } from '../../layouts';
-import { SpacingEnum } from '../../theme/globalStyles';
+import { Label, SpacingEnum } from '../../theme/globalStyles';
 import Button from '../Buttons/Button';
 import Input from '../Forms/Input/Input';
+import Radio from '../Forms/Input/Radio';
+import RadioGroup from '../Forms/Input/RadioGroup';
 import Heading from '../Headings/Heading';
 
 export interface IPopover {
     defaultOpen: boolean;
-    onDidDismiss: () => void;
+    onDidDismissHandler: () => void;
     Component: React.FC<{}>;
     id: string;
     reference?: "event" | "trigger";
@@ -20,20 +22,21 @@ export interface IPopover {
 const DefaultComponent: React.FC<{}> = () => {
     return (
         <Box borderWidth='0' padding={SpacingEnum['s-3']}>
-            <Stack>
-                <Heading level="4">Popover</Heading>
-                <Input label="Label" name="popover-input" />
-                <Button label='Submit' size='small' />
+            <Stack space={SpacingEnum['s-2']}>
+                <Label>Theme</Label>
+                {/* <Input label="Label" name="popover-input" /> */}
+
+                <RadioGroup name="theme" radios={[{label: "Dark", value: "Dark"}, {label: "Light", value: "Light"}]}/>
             </Stack>
         </Box>
     )
 }
 
-const PopoverDefaultProps: IPopover = {
+export const PopoverDefaultProps: IPopover = {
     defaultOpen: false,
-    onDidDismiss: () => { },
-    Component: DefaultComponent ,
-    reference: "event",
+    onDidDismissHandler: () => { },
+    Component: DefaultComponent,
+    reference: "trigger",
     id: "popover-id",
     triggerAction: "click",
     side: "bottom",
@@ -42,20 +45,28 @@ const PopoverDefaultProps: IPopover = {
 
 
 
-const Popover: React.FC<IPopover> = ({ Component, ...props }) => {
-    const [isOpen, setIsOpen] = React.useState(props.defaultOpen);
+const Popover: React.FC<IPopover> = ({ defaultOpen, Component, onDidDismissHandler, ...props }) => {
+    const [isOpen, setIsOpen] = React.useState(defaultOpen);
+    React.useEffect(() => {
+        setIsOpen(defaultOpen);
+    }, [defaultOpen])
+    const onDidDismiss = () => {
+        if (onDidDismissHandler) onDidDismissHandler();
+        setIsOpen(false);
+    }
+
     return (
         <>
-            <Button id={props.id} label="Trigger" />
+            {/* <Button id={props.id} label="Trigger" /> */}
             <IonPopover
                 arrow={true}
                 mode="ios"
                 trigger={props.id}
-                // isOpen={isOpen}
+                isOpen={isOpen}
                 reference={props.reference}
-            // onDidDismiss={() => { setIsOpen(false); props.onDidDismiss() }}
+                onDidDismiss={onDidDismiss}
             >
-                {<Component/>}
+                {<Component />}
             </IonPopover>
         </>
 

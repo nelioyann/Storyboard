@@ -1,8 +1,7 @@
 import Center from './Center';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Box from './Box';
-import Heading from '../components/Headings/Heading';
-import Card from '../components/Cards/Card';
+
 
 
 export default {
@@ -37,7 +36,9 @@ export default {
 //👇 We create a “template” of how args map to rendering
 const CenterTemplate: ComponentStory<typeof Center> = (args) => (
     <Center {...args} >
-        <Card />
+        <Box >
+            Centered Box
+        </Box>
     </Center>
 );
 

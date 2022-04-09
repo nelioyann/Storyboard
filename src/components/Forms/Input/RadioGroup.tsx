@@ -22,7 +22,7 @@ const RadioGroup: React.FC<IRadioGroup> = ({ name, radios, ...RadioGroupDefaultP
     const [selected, setSelected] = useState<string>("apple")
     return (
         <IonRadioGroup {...RadioGroupDefaultProps} value={selected} onIonChange={e => setSelected(e.detail.value)}>
-            <Stack>
+            <Stack space='0'>
             {radios.map(({label, value}, index) =>(
                 <Radio key={`radio_${index}`} label={label} value={value} name={name}/>
             ))}

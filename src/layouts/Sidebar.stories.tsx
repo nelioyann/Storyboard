@@ -44,8 +44,8 @@ export default {
 //👇 We create a “template” of how args map to rendering
 const SidebarTemplate: ComponentStory<typeof Sidebar> = (args) => (
     <Sidebar {...args} >
-        <Input label='Todo' name="todo" type="text" placeholder="Enter your new todo..." />
-        <Input label='Deadline' name="deadline" type="date" placeholder="Deadline" />
+        <Box/>
+        <Box/>
     </Sidebar>
 );
 

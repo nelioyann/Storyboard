@@ -16,7 +16,7 @@ export interface ITextarea extends HTMLAttributes<HTMLIonTextareaElement> {
     clearTextarea?: boolean;
 }
 const StyledTextarea = styled(IonTextarea)`
-    margin-top: ${SpacingEnum['s0']};
+    margin-top: ${SpacingEnum['s0']} !important;
     --padding-start: ${SpacingEnum['s-1']} !important;
     --padding-end: ${SpacingEnum['s-1']} !important;
     --border-color: var(--ion-item-border-color, var(--ion-border-color, var(--ion-color-step-150, rgba(0, 0, 0, 0.8))));
