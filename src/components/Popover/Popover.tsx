@@ -5,6 +5,7 @@ import { Label, SpacingEnum } from '../../theme/globalStyles';
 import Button from '../Buttons/Button';
 import Input from '../Forms/Input/Input';
 import Radio from '../Forms/Input/Radio';
+import RadioGroup from '../Forms/Input/RadioGroup';
 import Heading from '../Headings/Heading';
 
 export interface IPopover {
@@ -25,8 +26,7 @@ const DefaultComponent: React.FC<{}> = () => {
                 <Label>Theme</Label>
                 {/* <Input label="Label" name="popover-input" /> */}
 
-                <Radio name="popover" value="Dark" label='Dark'/>
-                <Radio name="popover" value="Light" label='Light'/>
+                <RadioGroup name="theme" radios={[{label: "Dark", value: "Dark"}, {label: "Light", value: "Light"}]}/>
             </Stack>
         </Box>
     )
@@ -36,7 +36,7 @@ export const PopoverDefaultProps: IPopover = {
     defaultOpen: false,
     onDidDismissHandler: () => { },
     Component: DefaultComponent,
-    reference: "event",
+    reference: "trigger",
     id: "popover-id",
     triggerAction: "click",
     side: "bottom",
