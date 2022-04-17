@@ -9,6 +9,7 @@ import { Label } from '../theme/globalStyles';
 import './Home.css';
 import Header from '../components/Headers/Header';
 import Content from '../ui/Content/Content';
+import { ModalExample } from '../components/Modals/ModalExample';
 
 const Home: React.FC = () => {
   return (
@@ -33,6 +34,9 @@ const Home: React.FC = () => {
               <Button label="Send"/>
             </Switcher>
           </Cover>
+          <Box>
+            <ModalExample/>
+          </Box>
         </Box>
       </Content>
     </IonPage>
