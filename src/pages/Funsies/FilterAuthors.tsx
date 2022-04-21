@@ -55,7 +55,7 @@ const FilterAuthors = () => {
     }, [search])
     return (
         // <Center intrinsic={false}>
-        <Box  style={{ borderRadius: SpacingEnum.subtleCurve, background: "white" }}>
+        <Box  style={{ borderRadius: SpacingEnum.subtleCurve }}>
             <Stack>
                 <Heading level="5">Filter by authors</Heading>
                 {/* <Box> */}

@@ -17,7 +17,7 @@ const Home: React.FC = () => {
       <Header label="Home" mode="ios"/>
       <Content>
         <Box padding="0" borderWidth="0">
-          <Cover noPad space="2em" minHeight="85vh">
+          {/* <Cover noPad space="2em" minHeight="85vh">
             <Box padding="0" borderWidth="0">
               <Heading level="3">Form</Heading>
               <Label size="large">This form is entirely built using bricks of layout.</Label>
@@ -33,10 +33,8 @@ const Home: React.FC = () => {
               <Button fill="outline" label="Save"/>
               <Button label="Send"/>
             </Switcher>
-          </Cover>
-          <Box>
+          </Cover> */}
             <ModalExample/>
-          </Box>
         </Box>
       </Content>
     </IonPage>
