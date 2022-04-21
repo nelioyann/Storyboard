@@ -38,6 +38,7 @@ const StyledSearchbar = styled(IonSearchbar)`
         & .searchbar-input {
         padding-top: 1em;
         padding-bottom: 1em;
+        color: ${ColorVariablesEnum.DARK};
         }
         & .searchbar-search-icon {
             top: 50%;
@@ -64,7 +65,7 @@ const FilterAuthors = () => {
                 <Stack space='0'>
                     {filteredUsers.map((user, index) => {
                         return (
-                            <StyledItem detail={false} lines="none" mode="ios" button={true} key={index}>
+                            <StyledItem color="light" detail={false} lines="none" mode="ios" button={true} key={index}>
                                 <BoringAvatar colors={colors} name={user} />
                                 <Label weight='bold'>{user}</Label>
                             </StyledItem>

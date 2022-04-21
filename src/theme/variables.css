@@ -67,13 +67,10 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-tint: #f5f6f9;
 }
 
-@media (prefers-color-scheme: dark) {
-  /*
-   * Dark Colors disabled for now
-   * -------------------------------------------
-   */
+/* @media (prefers-color-scheme: dark) { */
 
-  body {
+
+  body.dark {
     --ion-color-primary: #366d9c;
     --ion-color-primary-rgb: 54, 109, 156;
     --ion-color-primary-contrast: #ffffff;
@@ -223,7 +220,7 @@ http://ionicframework.com/docs/theming/ */
 
     --ion-card-background: #1e1e1e;
   }
-}
+/* } */
 
 :root {
   --measure: 70ch;

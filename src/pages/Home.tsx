@@ -3,18 +3,23 @@ import Button from '../components/Buttons/Button';
 import Heading from '../components/Headings/Heading';
 import Input from '../components/Forms/Input/Input';
 import Textarea from '../components/Forms/Input/Textarea';
-import { Switcher, Box, Cover, Sidebar, Stack } from '../layouts';
-import { Label } from '../theme/globalStyles';
+import { Switcher, Box, Cover, Sidebar, Stack, Cluster } from '../layouts';
+import { ColorLabelsEnum, Label } from '../theme/globalStyles';
 // import { SpacingEnum } from '../theme/globalStyles';
 import './Home.css';
 import Header from '../components/Headers/Header';
 import Content from '../ui/Content/Content';
 import { ModalExample } from '../components/Modals/ModalExample';
+import { useDarkMode } from '../hooks/use-dark-mode.hook';
+import { contrastOutline } from 'ionicons/icons';
+import FilterAuthors from './Funsies/FilterAuthors';
 
 const Home: React.FC = () => {
+  const { darkTheme, setDarkTheme } = useDarkMode();
+  // console.log(darkTheme)
   return (
     <IonPage>
-      <Header label="Home" mode="ios"/>
+      <Header label="Home" mode="ios" icon={contrastOutline} iconOnclickHandler={() => setDarkTheme(!darkTheme)} />
       <Content>
         <Box padding="0" borderWidth="0">
           {/* <Cover noPad space="2em" minHeight="85vh">
@@ -32,9 +37,14 @@ const Home: React.FC = () => {
             <Switcher>
               <Button fill="outline" label="Save"/>
               <Button label="Send"/>
-            </Switcher>
-          </Cover> */}
-            <ModalExample/>
+              </Switcher>
+            </Cover> */}
+          {/* <Button label="Change theme" color={ColorLabelsEnum.DARK} onClick={() => setDarkTheme(!darkTheme)}/> */}
+
+          {/* <ModalExample/> */}
+          <Cluster>
+            <FilterAuthors />
+          </Cluster>
         </Box>
       </Content>
     </IonPage>

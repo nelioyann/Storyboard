@@ -11,13 +11,10 @@ import { Cluster, Grid } from '../layouts';
 const Attributions: React.FC = () => {
     return (
         <IonPage>
-            <Header label="Attributions" mode="ios"/>
+            <Header label="Attributions" mode="ios" />
             <Content >
                 {/* <SvgIcon Icon={FSC} size={"5em"} color={ColorVariablesEnum.PRIMARY}/> */}
-                <Cluster>
-
-                <FilterAuthors/>
-                </Cluster>
+                
             </Content>
         </IonPage>
     );
