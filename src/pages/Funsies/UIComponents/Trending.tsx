@@ -1,3 +1,4 @@
+import { IonItem } from '@ionic/react'
 import { chevronDown } from 'ionicons/icons'
 import React from 'react'
 import Button from '../../../components/Buttons/Button'
@@ -6,11 +7,17 @@ import Popover from '../../../components/Popover/Popover'
 import { Box, Stack } from '../../../layouts'
 import { ColorLabelsEnum, SpacingEnum } from '../../../theme/globalStyles'
 
+
+let options = ["Newest", "Oldest", "Most Popular", "Least Popular"]
 const PopOverContent = () => {
     return (
         <Box borderWidth='0' padding={SpacingEnum['s-3']}>
             <Stack space={SpacingEnum['s-2']}>
-                <RadioGroup name="trends" radios={[{ label: "New", value: "New" }, { label: "Trending", value: "Trending" }]} />
+                {options.map((option, index) => (
+                    <IonItem button key={`radio_${index}`}>
+                        {option}
+                    </IonItem>
+                ))}
             </Stack>
         </Box>
     )
