@@ -122,6 +122,7 @@ export const Label = styled.p<ParagraphProps>`
     font-size: ${FontSizeEnum["step-0"]};
     margin-top: 0 ;
     margin-bottom: 0;
+    /* color: ${props => props.color ? `var(--ion-color-${props.color})` : `var(--ion-color-dark-shade)`}; */
     /* ${({ color }) =>
         color &&
         css`

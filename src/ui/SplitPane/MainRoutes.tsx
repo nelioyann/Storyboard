@@ -8,6 +8,7 @@ import MenuItem from './MenuItem';
 import styled from 'styled-components';
 import Menu from './Menu';
 import { IonReactRouter } from '@ionic/react-router';
+import { DarkModeContextProvider } from '../../hooks/use-dark-mode.hook';
 
 const CircularLogo = styled(Box)`
     border-radius: 50%;
@@ -37,16 +38,17 @@ const MainRoutes: React.FC<IMainRoutes> = ({ disabled = false, tabs, contentId =
 
     return (
         <IonReactRouter>
-            {/* <IonContent> */}
-            {/* Wrapping the splitPane in a IonContent 
+            <DarkModeContextProvider>
+                {/* <IonContent> */}
+                {/* Wrapping the splitPane in a IonContent 
             produce a better display (less shadows, better header background) */}
                 {/* <StyledSplitPane when={when} contentId={contentId} disabled={disabled}> */}
-                    {/* Side Menu */}
-                    {/* <Menu tabs={tabs} contentId={contentId} /> */}
-                    {/* Main router Outlet */}
-                    {/* Using the render method prop cuts down the number of renders your components will have due to route changes.
+                {/* Side Menu */}
+                {/* <Menu tabs={tabs} contentId={contentId} /> */}
+                {/* Main router Outlet */}
+                {/* Using the render method prop cuts down the number of renders your components will have due to route changes.
                         Use the component prop when your component depends on the RouterComponentProps passed in automatically. */}
-                    {/* <IonRouterOutlet id={contentId}>
+                {/* <IonRouterOutlet id={contentId}>
                         <Route exact path="/">
                             <Redirect to="/tabs/accueil" />
                         </Route>
@@ -61,7 +63,8 @@ const MainRoutes: React.FC<IMainRoutes> = ({ disabled = false, tabs, contentId =
                     </IonRouterOutlet>
                 </StyledSplitPane>
             </IonContent> */}
-            <Tabs when={when} tabs={tabs} />
+                <Tabs when={when} tabs={tabs} />
+            </DarkModeContextProvider>
         </IonReactRouter>
     )
 };
