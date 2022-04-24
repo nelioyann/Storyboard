@@ -64,6 +64,7 @@ const Popover: React.FC<IPopover> = ({ defaultOpen, Component, onDidDismissHandl
                 isOpen={isOpen}
                 reference={props.reference}
                 onDidDismiss={onDidDismiss}
+                style={{"--background": ColorLabelsEnum.LIGHT}}
             >
                 {<Component />}
             </IonPopover>
