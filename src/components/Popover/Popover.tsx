@@ -1,7 +1,7 @@
 import { IonPopover } from '@ionic/react'
 import React from 'react'
 import { Box, Stack } from '../../layouts';
-import { Label, SpacingEnum } from '../../theme/globalStyles';
+import { ColorLabelsEnum, Label, SpacingEnum } from '../../theme/globalStyles';
 import Button from '../Buttons/Button';
 import Input from '../Forms/Input/Input';
 import Radio from '../Forms/Input/Radio';
@@ -23,9 +23,8 @@ const DefaultComponent: React.FC<{}> = () => {
     return (
         <Box borderWidth='0' padding={SpacingEnum['s-3']}>
             <Stack space={SpacingEnum['s-2']}>
-                <Label>Theme</Label>
+                {/* <Label>Theme</Label> */}
                 {/* <Input label="Label" name="popover-input" /> */}
-
                 <RadioGroup name="theme" radios={[{label: "Dark", value: "Dark"}, {label: "Light", value: "Light"}]}/>
             </Stack>
         </Box>
