@@ -51,7 +51,7 @@ const Slide: React.FC<ISlide> = ({ title, isActive, lottie, handleSwipeNext }) =
                     {lottie && <StyledPlayer onEvent={event => {if (event === 'load') setAnimationLoaded(true)}} lottieRef={instance => setPlayer(instance)} {...playerOptions} src={lottie} />}
                     {title && <Heading level="3">{title}</Heading>}
                 </Stack>
-                <Button onClick={handleSwipeNext} size="large" color={ColorLabelsEnum.DARK} expand="block" label="Continue"></Button>
+                <Button onClick={handleSwipeNext} size="large"  expand="block" label="Continue"></Button>
             </Cover>
         </Box>
     )

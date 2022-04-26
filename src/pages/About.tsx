@@ -3,7 +3,6 @@ import Card from '../components/Cards/Card';
 import Header from '../components/Headers/Header';
 import { Grid } from '../layouts';
 import Content from '../ui/Content/Content';
-import './Home.css';
 
 const About: React.FC = () => {
     return (

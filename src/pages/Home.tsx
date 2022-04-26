@@ -4,15 +4,14 @@ import Heading from '../components/Headings/Heading';
 import Input from '../components/Forms/Input/Input';
 import Textarea from '../components/Forms/Input/Textarea';
 import { Switcher, Box, Cover, Sidebar, Stack, Cluster } from '../layouts';
-import { ColorLabelsEnum, Label } from '../theme/globalStyles';
+import { ColorLabelsEnum, Label, SpacingEnum } from '../theme/globalStyles';
 // import { SpacingEnum } from '../theme/globalStyles';
-import './Home.css';
 import Header from '../components/Headers/Header';
 import Content from '../ui/Content/Content';
 import { ModalExample } from '../components/Modals/ModalExample';
 import { useDarkMode } from '../hooks/use-dark-mode.hook';
 import { contrastOutline } from 'ionicons/icons';
-import FilterAuthors from './Funsies/FilterAuthors';
+import {FilterAuthors, Searches, Trending} from './Funsies';
 
 const Home: React.FC = () => {
   const { darkTheme, setDarkTheme } = useDarkMode();
@@ -42,8 +41,10 @@ const Home: React.FC = () => {
           {/* <Button label="Change theme" color={ColorLabelsEnum.DARK} onClick={() => setDarkTheme(!darkTheme)}/> */}
 
           {/* <ModalExample/> */}
-          <Cluster>
+          <Cluster space={SpacingEnum.s0}>
             <FilterAuthors />
+            <Searches />
+            <Trending/>
           </Cluster>
         </Box>
       </Content>

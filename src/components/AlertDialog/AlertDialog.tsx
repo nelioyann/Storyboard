@@ -50,10 +50,13 @@ const AlertDialogDefaultProps: IAlertDialog = {
 }
 const AlertDialog: React.FC<IAlertDialog> = ({ defaultOpen, onDidDismissHandler, ...props }) => {
     const [isOpen, setIsOpen] = React.useState(defaultOpen);
-    const notify = useToast();
+    // const notify = useToast();
     React.useEffect(() => {
         setIsOpen(defaultOpen);
-        if(defaultOpen) notify("AlertDialog is open", "success");
+        // if(defaultOpen) notify("AlertDialog is open", "success");
+        return () => {
+            setIsOpen(false);
+        }
     }, [defaultOpen])
     const onDidDismiss = () => {
         if (onDidDismissHandler) onDidDismissHandler();

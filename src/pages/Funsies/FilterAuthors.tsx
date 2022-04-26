@@ -67,7 +67,7 @@ const FilterAuthors = () => {
                         return (
                             <StyledItem color="light" detail={false} lines="none" mode="ios" button={true} key={index}>
                                 <BoringAvatar colors={colors} name={user} />
-                                <Label weight='bold'>{user}</Label>
+                                <Label weight='regular'>{user}</Label>
                             </StyledItem>
                         )
                     }

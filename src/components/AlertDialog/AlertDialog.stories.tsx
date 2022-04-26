@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 
 export default {
-    title: "Molecules/AlertDialog",
+    title: "Molecules/Alert Dialog",
     component: AlertDialog,
     argTypes: {
         // onClick: {action: 'clicked'},
@@ -21,15 +21,17 @@ export default {
 
 //👇 We create a “template” of how args map to rendering
 const CardTemplate: ComponentStory<typeof AlertDialog> = (args) => (
-<AlertDialog {...args} />
+    <div className='ion-margin'>
+        <AlertDialog {...args} />
+    </div>
 );
 
 //👇 We base new AlertDialog instances on our “template” 
-export const Default= CardTemplate.bind({})
+export const Default = CardTemplate.bind({})
 
 
 //👇 We adapt each instances by providing new attributes 
 Default.args = {
     defaultOpen: true,
-    
+
 }
